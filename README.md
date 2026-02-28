@@ -1,6 +1,6 @@
 <p align="center">
     <picture>
-        <img src="./src/img/craken_husk.png" alt="BloodPengu.py" width='150'/>
+        <img src="./src/img/craken_husk.png" alt="BloodPengu.py" width='250'/>
     </picture>
 </p>
 
@@ -36,7 +36,7 @@ Extra module with `-M`
 
 ## Install
 
-Paramiko
+Paramiko [as SSHv2](https://www.paramiko.org/) protocol.
 
 ```
 pip3 install .
