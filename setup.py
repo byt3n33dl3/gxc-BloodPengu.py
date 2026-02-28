@@ -7,7 +7,7 @@ setup(
     long_description=open("README.md").read() if __import__("os").path.exists("README.md") else "",
     author="byt3n33dl3",
     url="https://github.com/byt3n33dl3/gxc-BloodPengu.py",
-    license="Apache 2.0",
+    license="Apache-2.0",
     python_requires=">=3.7",
     install_requires=[
         "paramiko>=3.0.0",
@@ -22,7 +22,7 @@ setup(
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: POSIX :: Linux",
-        "License :: OSI Approved :: Apache 2.0",
+        "License :: OSI Approved :: Apache Software License",
         "Environment :: Console",
         "Topic :: Security",
     ],
