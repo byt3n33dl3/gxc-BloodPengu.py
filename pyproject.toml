@@ -21,5 +21,8 @@ Tracker = "https://github.com/byt3n33dl3/gxc-BloodPengu.py/issues"
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools]
+py-modules = ["bloodpengu_python"]
+
 [tool.setuptools.package-data]
 modules = ["*.py"]
