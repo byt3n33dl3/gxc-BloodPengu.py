@@ -18,7 +18,7 @@
 
 Data ingestor in Python for `BloodPengu` APM (Attack Path Manager!!)
 
-Enumerate via SSH logon authentication and runs the full BloodPengu enumeration pipeline. All output lands on the attacker machine as JSON file, ready to import directly into BloodPengu.
+Enumerate via SSH logon authentication and runs the full BloodPengu enumeration pipeline. All output lands on the attacker machine as JSON file (-o out.put), ready to import directly into BloodPengu.
 
 ## Features
 
