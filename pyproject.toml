@@ -2,6 +2,22 @@
 requires = ["setuptools>=68", "wheel"]
 build-backend = "setuptools.build_meta"
 
+[project]
+name = "bloodpengu-python"
+version = "1.4.3"
+description = "Data collector in Python for BloodPengu APM"
+requires-python = ">=3.7"
+license = {text = "Apache-2.0"}
+authors = [{name = "byt3n33dl3"}]
+dependencies = ["paramiko>=3.0.0"]
+
+[project.scripts]
+bloodpengu-python = "bloodpengu_python:main"
+
+[project.urls]
+Source = "https://github.com/byt3n33dl3/gxc-BloodPengu.py"
+Tracker = "https://github.com/byt3n33dl3/gxc-BloodPengu.py/issues"
+
 [tool.setuptools.packages.find]
 where = ["src"]
 
