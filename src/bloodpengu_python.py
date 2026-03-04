@@ -1,6 +1,13 @@
 #!/usr/bin/python3
 
+# <@byt3n33dl3> from byt3n33dl3.github.io (AdverXarial).
+#
+# This software is provided under under a slightly modified version
+# of the Apache Software License. See the accompanying LICENSE file
+# for more information.
+
 import argparse
+import importlib
 import json
 import os
 import sys
@@ -14,7 +21,7 @@ except ImportError:
     print("\033[1;31m[!]\033[0m paramiko not installed!! Run: pip3 install paramiko")
     sys.exit(1)
 
-BP_VERSION    = "1.3.9"
+BP_VERSION    = "1.4.2"
 SUITE_VERSION = "2.0.3"
 
 RESET   = "\033[0m"
@@ -27,6 +34,14 @@ DGREY   = "\033[2;37m"
 BGREEN  = "\033[1;32m"
 
 NO_COLOR = False
+
+MODULES_DIR = os.path.join(os.path.dirname(__file__), "modules")
+
+BUILTIN_MODULES = {
+    "sacspengu": "Compiler and Binary Analysis suggestor",
+    "avrisk":    "Anti-Virus Discovery!!",
+}
+
 
 def c(color, text):
     if NO_COLOR:
@@ -92,7 +107,7 @@ def banner():
     print(c(BORANGE, "                                 Iw-xh >I-                            "))
     print(c(BORANGE, "                                     w                                "))
     print()
-    print(c(BRED, "                           v1.3.9 [Kraken Husk]                          "))
+    print(c(BRED, "                           v1.4.2 [Mad Horv3n]                           "))
     print()
     print(f"  {c(BORANGE, 'gxc-BloodPengu.py')} {c(DGREY, f'v{BP_VERSION}')} {c(DGREY, '|')} {c(BORANGE, 'by <@byt3n33dl3>')}")
     print(f"  {c(DGREY, 'Data collector in Python for BloodPengu APM')}")
@@ -101,6 +116,25 @@ def banner():
 def divider():
     print(f"  {c(DGREY, '-' * 70)}")
     print()
+
+def get_available_modules():
+    mods = dict(BUILTIN_MODULES)
+    if os.path.isdir(MODULES_DIR):
+        for fname in os.listdir(MODULES_DIR):
+            if fname.endswith(".py") and fname != "__init__.py":
+                mname = fname[:-3]
+                if mname not in mods:
+                    mods[mname] = "Community module"
+    return mods
+
+def load_module(name):
+    mod_path = os.path.join(MODULES_DIR, f"{name}.py")
+    if not os.path.exists(mod_path):
+        return None
+    spec   = importlib.util.spec_from_file_location(name, mod_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module
 
 def print_help():
     banner()
@@ -125,7 +159,9 @@ def print_help():
     print(f"    {c(BORANGE, '-M')} {c(WHITE, 'MODULE')}            {c(DGREY, 'Run a specific module only')}")
     print()
     print(f"    {c(DGREY, '    Available modules:')}")
-    print(f"    {c(BORANGE, '    sacspengu')}        {c(DGREY, 'Compiler and binary analysis: gcc, make, writable paths')}")
+    available = get_available_modules()
+    for mname, mdesc in available.items():
+        print(f"    {c(BORANGE, f'    {mname:<16}')}  {c(DGREY, mdesc)}")
     print()
     print(f"{c(BORANGE, '  Output:')}")
     print()
@@ -142,6 +178,7 @@ def print_help():
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -k ~/.ssh/id_rsa --port 2222')}")
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -d kraken.htb -v')}")
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -M sacspengu')}")
+    print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -M avrisk')}")
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -k id_rsa -o ./results/kraken.json')}")
     print()
     print(f"  {c(DGREY, '-' * 70)}")
@@ -160,6 +197,7 @@ def print_help():
         ("network",    "RECON",    "Listening ports, interfaces, internal network range"),
         ("env",        "DISCOVER", "Env vars, history files, interesting files in home/opt"),
         ("sacspengu",  "COMPILE",  "Compilers, writable PATH/lib dirs, capabilities, build files"),
+        ("avrisk",     "RECON",    "Anti-Virus Discovery!!"),
     ]
     print(f"    {c(BORANGE, f'{'Collector':<14}')}  {c(DGREY, f'{'Role':<10}')}  {c(WHITE, 'Description')}")
     print(f"    {c(DGREY, '-' * 13)}  {c(DGREY, '-' * 9)}  {c(DGREY, '-' * 52)}")
@@ -231,44 +269,44 @@ PRIV_GROUPS = {
 
 KERNEL_CVES = {
     "5.8.0":  [
-        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                  "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
-        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                     "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
     ],
     "5.4.0":  [
-        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                  "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
-        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                     "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
         ("CVE-2022-0847", "high",     "Dirty Pipe - overwrite data in arbitrary read-only files", "https://nvd.nist.gov/vuln/detail/CVE-2022-0847"),
     ],
     "5.11.0": [
         ("CVE-2022-0847", "high",     "Dirty Pipe - overwrite data in arbitrary read-only files", "https://nvd.nist.gov/vuln/detail/CVE-2022-0847"),
     ],
     "4.4.0":  [
-        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",      "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
+        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",           "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
     ],
     "4.15.0": [
-        ("CVE-2018-18955","high",     "Linux kernel privilege escalation via user namespaces","https://nvd.nist.gov/vuln/detail/CVE-2018-18955"),
-        ("CVE-2019-13272","high",     "PTRACE_TRACEME pkexec local privilege escalation",    "https://nvd.nist.gov/vuln/detail/CVE-2019-13272"),
+        ("CVE-2018-18955","high",     "Linux kernel privilege escalation via user namespaces",     "https://nvd.nist.gov/vuln/detail/CVE-2018-18955"),
+        ("CVE-2019-13272","high",     "PTRACE_TRACEME pkexec local privilege escalation",         "https://nvd.nist.gov/vuln/detail/CVE-2019-13272"),
     ],
     "3.13.0": [
-        ("CVE-2015-1328", "critical", "Ubuntu overlayfs local privilege escalation",         "https://nvd.nist.gov/vuln/detail/CVE-2015-1328"),
+        ("CVE-2015-1328", "critical", "Ubuntu overlayfs local privilege escalation",              "https://nvd.nist.gov/vuln/detail/CVE-2015-1328"),
     ],
     "2.6.22": [
-        ("CVE-2012-0056", "high",     "Linux /proc/pid/mem privilege escalation",            "https://nvd.nist.gov/vuln/detail/CVE-2012-0056"),
+        ("CVE-2012-0056", "high",     "Linux /proc/pid/mem privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2012-0056"),
     ],
     "4.3.0":  [
-        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",      "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
+        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",           "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
     ],
     "5.16.0": [
         ("CVE-2022-0847", "high",     "Dirty Pipe - overwrite data in arbitrary read-only files", "https://nvd.nist.gov/vuln/detail/CVE-2022-0847"),
     ],
     "5.17.0": [
-        ("CVE-2022-25636","high",     "Netfilter heap out-of-bounds write",                  "https://nvd.nist.gov/vuln/detail/CVE-2022-25636"),
+        ("CVE-2022-25636","high",     "Netfilter heap out-of-bounds write",                       "https://nvd.nist.gov/vuln/detail/CVE-2022-25636"),
     ],
     "4.10.0": [
-        ("CVE-2017-7308", "high",     "Linux packet_set_ring privilege escalation",          "https://nvd.nist.gov/vuln/detail/CVE-2017-7308"),
+        ("CVE-2017-7308", "high",     "Linux packet_set_ring privilege escalation",               "https://nvd.nist.gov/vuln/detail/CVE-2017-7308"),
     ],
     "4.14.0": [
-        ("CVE-2017-16995","high",     "Linux eBPF verifier privilege escalation",            "https://nvd.nist.gov/vuln/detail/CVE-2017-16995"),
+        ("CVE-2017-16995","high",     "Linux eBPF verifier privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2017-16995"),
     ],
 }
 
@@ -298,6 +336,9 @@ class SSHCollector:
         self._os           = "Linux"
         self._arch         = ""
         self._collected_at = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        self.log_info      = log_info
+        self.log_ok        = log_ok
+        self.log_verbose   = log_verbose
 
     def _next_eid(self):
         self._edge_counter += 1
@@ -321,8 +362,8 @@ class SSHCollector:
             "nodes": node_list,
             "edges": edge_list,
             "stats": {
-                "total_nodes": len(node_list),
-                "total_edges": len(edge_list),
+                "total_nodes":  len(node_list),
+                "total_edges":  len(edge_list),
                 "paths_to_root": 0,
             },
         }
@@ -375,11 +416,14 @@ class SSHCollector:
 
     def collect_users(self):
         log_info("Collecting users and groups...")
-
         self._current_user = self.run("whoami").strip()
         self._hostname     = self.run("hostname 2>/dev/null").strip()
         self._arch         = self.run("uname -m 2>/dev/null").strip()
-        self._os           = self.run("lsb_release -ds 2>/dev/null || cat /etc/os-release 2>/dev/null | grep PRETTY_NAME | cut -d= -f2 | tr -d '\"' || echo Linux").strip().splitlines()[0] if True else "Linux"
+        self._os           = self.run(
+            "lsb_release -ds 2>/dev/null || "
+            "grep PRETTY_NAME /etc/os-release 2>/dev/null | cut -d= -f2 | tr -d '\"' || "
+            "echo Linux"
+        ).strip().splitlines()[0]
 
         id_out = self.run("id").strip()
         for part in id_out.replace(",", " ").split():
@@ -422,7 +466,7 @@ class SSHCollector:
             gname = parts[0]
             gid   = parts[2]
             self._add_node(f"group:{gname}", "group", gname, {
-                "gid":          gid,
+                "gid":           gid,
                 "is_privileged": gname.lower() in PRIV_GROUPS,
             })
 
@@ -482,14 +526,10 @@ class SSHCollector:
             is_gtfo = name in [g.lower() for g in GTFOBINS]
             nid     = f"binary:{path}"
             self._add_node(nid, "binary", path, {
-                "path":    path,
-                "suid":    True,
-                "gtfobin": is_gtfo,
-                "owner":   "other",
+                "path": path, "suid": True, "gtfobin": is_gtfo, "owner": "other",
             })
             risk = "critical" if is_gtfo else "medium"
-            self._add_edge(cu_id, "SuidBinary", nid, risk=risk,
-                           properties={"path": path})
+            self._add_edge(cu_id, "SuidBinary", nid, risk=risk, properties={"path": path})
             if is_gtfo:
                 gtfo_count += 1
                 self._add_finding("CRITICAL", "suid", f"GTFOBins SUID binary: {path}", path)
@@ -518,12 +558,10 @@ class SSHCollector:
             grp_id = f"group:{grp}"
             if grp_id not in self._nodes:
                 self._add_node(grp_id, "group", grp, {
-                    "gid":          "",
-                    "is_privileged": grp in PRIV_GROUPS,
+                    "gid": "", "is_privileged": grp in PRIV_GROUPS,
                 })
             risk = PRIV_GROUPS.get(grp, "low")
             self._add_edge(cu_id, "MemberOf", grp_id, risk=risk)
-
             if grp == "docker":
                 self._add_finding("CRITICAL", "groups", "Member of docker group - socket escape to root available", grp)
                 self._add_edge(cu_id, "DockerEscape", "user:root", risk="critical",
@@ -545,7 +583,7 @@ class SSHCollector:
 
     def collect_services(self):
         log_info("Collecting systemd service units...")
-        cu_id = f"user:{self._current_user}"
+        cu_id      = f"user:{self._current_user}"
         unit_paths = self.run_lines(
             "find /etc/systemd /lib/systemd /usr/lib/systemd -name '*.service' 2>/dev/null"
         )
@@ -554,9 +592,7 @@ class SSHCollector:
             svc_name = os.path.basename(path)
             nid      = f"service:{svc_name}"
             self._add_node(nid, "service", svc_name, {
-                "path":    path,
-                "run_as":  "root",
-                "state":   "unknown",
+                "path": path, "run_as": "root", "state": "unknown",
             })
             if self.writable(path):
                 writable_count += 1
@@ -619,7 +655,7 @@ class SSHCollector:
                     continue
                 owner  = parts[5]
                 script = parts[6]
-                if not owner.isidentifier() and not all(c.isalnum() or c in "_-." for c in owner):
+                if not all(ch.isalnum() or ch in "_-." for ch in owner):
                     continue
                 if not script.startswith("/"):
                     continue
@@ -652,40 +688,31 @@ class SSHCollector:
         cu_id   = f"user:{self._current_user}"
         uname_r = self.run("uname -r").strip()
         self._kernel = uname_r
-
-        kernel_base = ".".join(uname_r.split(".")[:3])
+        kernel_base  = ".".join(uname_r.split(".")[:3])
         matched = []
         for k_ver, cve_list in KERNEL_CVES.items():
             if kernel_base.startswith(k_ver):
                 matched.extend(cve_list)
-
         seen_cves = set()
-        deduped = []
+        deduped   = []
         for entry in matched:
             if entry[0] not in seen_cves:
                 seen_cves.add(entry[0])
                 deduped.append(entry)
-
         for cve, risk, desc, ref in deduped:
             self._add_finding("HIGH", "kernel", f"Kernel {uname_r} may be vulnerable to {cve}", uname_r)
             self._add_edge(cu_id, "KernelExploit", "user:root", risk=risk,
-                           properties={
-                               "cve":            cve,
-                               "description":    desc,
-                               "kernel_version": uname_r,
-                               "reference":      ref,
-                           })
-
+                           properties={"cve": cve, "description": desc,
+                                       "kernel_version": uname_r, "reference": ref})
         if self.verbose:
             log_verbose("kernel", "version", uname_r)
-
         log_ok(f"Kernel: {uname_r}  |  CVE matches: {len(deduped)}")
 
     def collect_containers(self):
         log_info("Collecting container and cloud context...")
         cu_id = f"user:{self._current_user}"
-
-        sock_exists = self.run("[ -S /var/run/docker.sock ] && echo YES || echo NO").strip() == "YES"
+        sock_exists  = self.run("[ -S /var/run/docker.sock ] && echo YES || echo NO").strip() == "YES"
+        in_container = self.run("[ -f /.dockerenv ] && echo YES || echo NO").strip() == "YES"
         if sock_exists:
             sock_perms = self.run("ls -la /var/run/docker.sock 2>/dev/null")
             nid = "service:docker.socket"
@@ -700,43 +727,30 @@ class SSHCollector:
                                properties={"via": "writable docker socket"})
             else:
                 self._add_finding("HIGH", "containers", f"Docker socket present: {sock_perms.strip()}", sock_perms)
-
-        in_container = self.run("[ -f /.dockerenv ] && echo YES || echo NO").strip() == "YES"
         if in_container:
             self._add_finding("HIGH", "containers", "Running inside Docker container - escape may be in scope")
-
         cgroup = self.run("cat /proc/1/cgroup 2>/dev/null | head -5")
         if cgroup:
             for rt in ("docker", "lxc", "kubepods"):
                 if rt in cgroup.lower():
                     self._add_finding("POTENTIAL", "containers", f"cgroup indicates {rt} environment", cgroup[:120])
                     break
-
-        for rt in ["docker","lxc-ls","lxd","podman","runc","containerd","kubectl"]:
-            path = self.run(f"which {rt} 2>/dev/null")
-            if path and self.verbose:
-                log_verbose("containers", "runtime", f"{rt} -> {path.strip()}")
-
-        aws_creds = self.run("cat ~/.aws/credentials 2>/dev/null | head -3")
-        if aws_creds:
-            self._add_finding("CRITICAL", "containers", "AWS credentials readable: ~/.aws/credentials", aws_creds[:80])
+        if self.run("cat ~/.aws/credentials 2>/dev/null | head -3"):
+            self._add_finding("CRITICAL", "containers", "AWS credentials readable: ~/.aws/credentials")
         if self.run("ls ~/.config/gcloud/ 2>/dev/null"):
             self._add_finding("HIGH", "containers", "GCP credential directory: ~/.config/gcloud/")
         if self.run("ls ~/.azure/ 2>/dev/null"):
             self._add_finding("HIGH", "containers", "Azure credential directory: ~/.azure/")
-        k8s_token = self.run("cat /var/run/secrets/kubernetes.io/serviceaccount/token 2>/dev/null | head -c 80")
-        if k8s_token:
-            self._add_finding("CRITICAL", "containers", "Kubernetes service account token readable", k8s_token[:40] + "...")
+        if self.run("cat /var/run/secrets/kubernetes.io/serviceaccount/token 2>/dev/null | head -c 80"):
+            self._add_finding("CRITICAL", "containers", "Kubernetes service account token readable")
         if self.run("ls ~/.kube/config 2>/dev/null"):
             self._add_finding("HIGH", "containers", "kubeconfig found: ~/.kube/config")
-
         log_ok(f"Docker socket: {sock_exists}  |  In container: {in_container}")
 
     def collect_network(self):
         log_info("Collecting network information...")
         ifaces    = self.run("ip addr show 2>/dev/null || ifconfig -a 2>/dev/null")
         listening = self.run("ss -tlnpu 2>/dev/null || netstat -tlnpu 2>/dev/null")
-
         ranges = []
         for line in ifaces.splitlines():
             if "inet " in line and "127.0.0" not in line:
@@ -744,40 +758,30 @@ class SSHCollector:
                 for i, p in enumerate(parts):
                     if p == "inet" and i + 1 < len(parts):
                         ranges.append(parts[i+1])
-
         svc_ports = {
             "3306":"mysql","5432":"postgres","6379":"redis",
-            "27017":"mongodb","11211":"memcache","9200":"elasticsearch",
-            "21":"ftp","25":"smtp","389":"ldap","636":"ldaps",
-            "5900":"vnc","3389":"rdp","23":"telnet",
+            "27017":"mongodb","21":"ftp","25":"smtp",
+            "389":"ldap","636":"ldaps","5900":"vnc","3389":"rdp","23":"telnet",
         }
         interesting = set()
         for line in listening.splitlines():
             for port, svc in svc_ports.items():
                 if f":{port}" in line or f" {port} " in line:
                     interesting.add(f"{svc} (port {port}): {line.strip()[:80]}")
-
         for entry in interesting:
             self._add_finding("POTENTIAL", "network", f"Interesting internal service: {entry}", entry)
-
         if self.verbose:
             for r in ranges:
                 log_verbose("network", "interface", r)
-
         log_ok(f"Interfaces: {len(ranges)}  |  Interesting services: {len(interesting)}")
 
     def collect_env(self):
         log_info("Collecting environment and interesting files...")
-        cu    = self._current_user
-        cu_id = f"user:{cu}"
+        cu_id    = f"user:{self._current_user}"
         home_dir = self.run("echo $HOME").strip()
-
-        env_vars = self.run("env 2>/dev/null")
-        for line in env_vars.splitlines():
-            lower = line.lower()
-            if "=" in line and any(s in lower for s in SENSITIVE_ENV_KEYS):
+        for line in self.run("env 2>/dev/null").splitlines():
+            if "=" in line and any(s in line.lower() for s in SENSITIVE_ENV_KEYS):
                 self._add_finding("CRITICAL", "env", f"Sensitive env variable: {line[:120]}", line)
-
         interesting_home = self.run_lines(
             f"find {home_dir} -maxdepth 4 -type f \\("
             " -name '*.txt' -o -name '*.log' -o -name '*.cfg' -o -name '*.conf'"
@@ -799,7 +803,6 @@ class SSHCollector:
                 self._add_finding("HIGH", "env", f"Potentially sensitive file: {f}", f)
             elif self.verbose:
                 log_verbose("env", "file", f)
-
         for hf in self.run_lines(
             f"find {home_dir} /root -maxdepth 2"
             " \\( -name '*_history' -o -name '.bash_history' -o -name '.zsh_history' \\) 2>/dev/null"
@@ -812,111 +815,21 @@ class SSHCollector:
             )
             if hist:
                 self._add_finding("HIGH", "env", f"Sensitive commands in history: {hf}", hist[:200])
-
-        for f in self.run_lines(
-            "find /opt /srv /var/www -maxdepth 4 -type f \\("
-            " -name '*.env' -o -name '*.conf' -o -name '*.cfg' -o -name 'config.*'"
-            " -o -name '*.db' -o -name '*.sqlite' -o -name '*.sql'"
-            " -o -name '*.bak' -o -name '*.backup'"
-            " \\) 2>/dev/null | head -30"
-        ):
-            fname = os.path.basename(f).lower()
-            if any(x in fname for x in (".env","password","secret","cred",".db",".sqlite",".sql")):
-                self._add_finding("HIGH", "env", f"Interesting file in web/opt: {f}", f)
-            elif self.verbose:
-                log_verbose("env", "opt/www", f)
-
         log_ok(f"Env collected  |  Interesting files: {len(interesting_home)}")
 
     def collect_sacspengu(self):
-        log_info("Running SACSPengu module - compiler and binary analysis...")
-        cu_id = f"user:{self._current_user}"
+        mod = load_module("sacspengu")
+        if mod:
+            mod.run(self)
+        else:
+            log_err("Module sacspengu not found in modules/")
 
-        compilers = [
-            "gcc","g++","cc","c89","c99","make","cmake","ninja",
-            "python","python3","python2","perl","ruby","php",
-            "java","javac","go","cargo","rustc",
-            "as","ld","ar","nm","objdump","strip","readelf",
-        ]
-        found = 0
-        for comp in compilers:
-            path = self.run(f"which {comp} 2>/dev/null")
-            if not path:
-                continue
-            found += 1
-            nid = f"binary:{path.strip()}"
-            self._add_node(nid, "binary", path.strip(), {
-                "path": path.strip(), "suid": False, "gtfobin": False, "owner": "root",
-            })
-            self._add_finding("POTENTIAL", "sacspengu", f"Compiler/interpreter: {comp} -> {path.strip()}", path)
-            if comp in ("gcc","g++","cc","make","as"):
-                self._add_edge(cu_id, "SuidBinary", nid, risk="medium",
-                               properties={"path": path.strip(), "note": "compiler available"})
-
-        ld_path = self.run("echo $LD_LIBRARY_PATH")
-        if ld_path:
-            for ldir in ld_path.split(":"):
-                if ldir.strip() and self.writable(ldir.strip()):
-                    self._add_finding("CRITICAL", "sacspengu", f"Writable LD_LIBRARY_PATH dir: {ldir}", ldir)
-
-        for ldir in ("/usr/local/lib","/usr/lib","/lib","/opt/lib"):
-            if self.writable(ldir):
-                self._add_finding("CRITICAL", "sacspengu", f"Writable library directory: {ldir}", ldir)
-
-        writable_path = 0
-        for pdir in self.run("echo $PATH").split(":"):
-            if pdir.strip() and self.writable(pdir.strip()):
-                writable_path += 1
-                self._add_finding("CRITICAL", "sacspengu", f"Writable $PATH directory: {pdir}", pdir)
-
-        for bf in self.run_lines(
-            "find /opt /srv /home /var/www /usr/local/src /tmp -maxdepth 4"
-            " \\( -name 'Makefile' -o -name 'CMakeLists.txt'"
-            " -o -name 'setup.py' -o -name 'Cargo.toml' \\)"
-            " 2>/dev/null | head -20"
-        ):
-            bdir = os.path.dirname(bf)
-            if self.writable(bdir):
-                self._add_finding("HIGH", "sacspengu", f"Writable build directory: {bdir}  ({os.path.basename(bf)})", bdir)
-            elif self.verbose:
-                log_verbose("sacspengu", "build file", bf)
-
-        for s in self.run_lines(
-            "find / -perm -4000 \\( -name '*.py' -o -name '*.pl'"
-            " -o -name '*.rb' -o -name '*.sh' \\) 2>/dev/null"
-        ):
-            nid = f"binary:{s}"
-            self._add_node(nid, "binary", s, {
-                "path": s, "suid": True, "gtfobin": True, "owner": "root",
-            })
-            self._add_finding("CRITICAL", "sacspengu", f"SUID interpreted script: {s}", s)
-            self._add_edge(cu_id, "SuidBinary", nid, risk="critical",
-                           properties={"path": s, "note": "SUID interpreted script"})
-            self._add_edge(cu_id, "SuidBinary", "user:root", risk="critical",
-                           properties={"via": f"SUID script {os.path.basename(s)}"})
-
-        caps = self.run("getcap -r / 2>/dev/null | head -20")
-        if caps:
-            dangerous = ("cap_setuid","cap_setgid","cap_sys_admin","cap_net_admin","cap_dac_override","cap_fowner")
-            for line in caps.splitlines():
-                if not line.strip():
-                    continue
-                cap_path = line.split()[0] if line.split() else ""
-                if any(cap in line for cap in dangerous):
-                    cap_name = os.path.basename(cap_path)
-                    nid      = f"binary:{cap_path}"
-                    self._add_node(nid, "binary", cap_name, {
-                        "path": cap_path, "suid": False, "gtfobin": True, "owner": "root",
-                    })
-                    self._add_finding("CRITICAL", "sacspengu", f"Dangerous capability: {line.strip()}", line)
-                    self._add_edge(cu_id, "SuidBinary", nid, risk="critical",
-                                   properties={"capability": line.strip()})
-                    self._add_edge(cu_id, "SuidBinary", "user:root", risk="critical",
-                                   properties={"via": f"capability {cap_name}"})
-                elif self.verbose:
-                    log_verbose("sacspengu", "capability", line.strip())
-
-        log_ok(f"Compilers: {found}  |  Writable PATH dirs: {writable_path}  |  Capabilities scanned")
+    def collect_avrisk(self):
+        mod = load_module("avrisk")
+        if mod:
+            mod.run(self)
+        else:
+            log_err("Module avrisk not found in modules/")
 
     def run_all(self):
         self.collect_users()
@@ -930,15 +843,20 @@ class SSHCollector:
         self.collect_network()
         self.collect_env()
         self.collect_sacspengu()
+        self.collect_avrisk()
 
     def run_module(self, module):
-        modules = {"sacspengu": self.collect_sacspengu}
-        if module not in modules:
-            log_err(f"Unknown module: {module}  |  Available: sacspengu")
+        available = get_available_modules()
+        if module not in available:
+            log_err(f"Unknown module: {module}  |  Available: {', '.join(available.keys())}")
             sys.exit(1)
         self.collect_users()
         self.collect_groups()
-        modules[module]()
+        mod = load_module(module)
+        if not mod:
+            log_err(f"Could not load module file: modules/{module}.py")
+            sys.exit(1)
+        mod.run(self)
 
 
 def connect_ssh(target, port, username, password, key_file):
@@ -950,15 +868,26 @@ def connect_ssh(target, port, username, password, key_file):
             if not os.path.exists(key_file):
                 log_err(f"Key file not found: {key_file}")
                 sys.exit(1)
-            pkey = None
-            for key_class in (paramiko.RSAKey, paramiko.Ed25519Key, paramiko.ECDSAKey, paramiko.DSSKey):
-                try:
-                    pkey = key_class.from_private_key_file(key_file)
-                    break
-                except Exception:
-                    continue
+            try:
+                pkey = paramiko.PKey.from_private_key_file(key_file)
+            except AttributeError:
+                pkey = None
+                for key_class in (paramiko.RSAKey, paramiko.Ed25519Key, paramiko.ECDSAKey):
+                    try:
+                        pkey = key_class.from_private_key_file(key_file)
+                        break
+                    except Exception:
+                        continue
+            except Exception:
+                pkey = None
+                for key_class in (paramiko.RSAKey, paramiko.Ed25519Key, paramiko.ECDSAKey):
+                    try:
+                        pkey = key_class.from_private_key_file(key_file)
+                        break
+                    except Exception:
+                        continue
             if pkey is None:
-                log_err(f"Could not load key: {key_file} - unsupported format")
+                log_err(f"Could not load key: {key_file} - unsupported format or bad passphrase")
                 sys.exit(1)
             client.connect(hostname=target, port=port, username=username, pkey=pkey,
                            timeout=15, allow_agent=False, look_for_keys=False)
@@ -1020,9 +949,10 @@ def main():
         log_err("Authentication required: -p <password>  or  -k <key_file>")
         sys.exit(1)
 
-    if args.module and args.module not in ("sacspengu",):
+    available = get_available_modules()
+    if args.module and args.module not in available:
         banner()
-        log_err(f"Unknown module: {args.module}  |  Available: sacspengu")
+        log_err(f"Unknown module: {args.module}  |  Available: {', '.join(available.keys())}")
         sys.exit(1)
 
     banner()
@@ -1089,7 +1019,7 @@ def main():
     log_ok(f"Import {c(WHITE, args.output)} into BloodPengu via Import JSON")
     print()
     divider()
-    print(f"  {c(DGREY, f'gxc-BloodPengu.py v{BP_VERSION} by <@byt3n33dl3> <github.com/byt3n33dl3/gxc-BloodPengu.py>')}")
+    print(f"  {c(DGREY, 'gxc-BloodPengu.py')} v{BP_VERSION} by <@byt3n33dl3> {c(BORANGE, '<github.com/byt3n33dl3/gxc-BloodPengu.py>')}")
     print()
 
 

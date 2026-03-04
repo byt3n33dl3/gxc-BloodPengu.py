@@ -1,17 +1,22 @@
 <p align="center">
     <picture>
-        <img src="./src/img/craken_husk.png" alt="BloodPengu.py" width='250'/>
+        <img src="./src/img/craken_husk.png" alt="BloodPengu.py" width='300'/>
     </picture>
+</p>
+
+<p align="center">
+  <a href="#">1.4.2</a> •
+  <a href="#">[Mad Horv3n]</a>
 </p>
 
 <hr/>
 
 # gxc-BloodPengu.py
 
-![Python 3 compatible](https://img.shields.io/badge/python-3.x-blue.svg)
+![Python 3 compatible](https://img.shields.io/badge/python-3.X-blue.svg)
 ![License: MIT](https://img.shields.io/badge/license-Apache_License_2.0-blue)
 
-Data ingestor in Python for `BloodPengu` APM [Attack Path Manager!]
+Data ingestor in Python for `BloodPengu` APM (Attack Path Manager!!)
 
 Enumerate via SSH logon authentication and runs the full BloodPengu enumeration pipeline. All output lands on the attacker machine as JSON file, ready to import directly into BloodPengu.
 
@@ -32,9 +37,15 @@ What it collects over SSH (for BloodPengu):
 
 Extra module with `-M`
 
-- sacspengu mode
+- For all Modules (-M) Option please [read the Wiki](https://github.com/byt3n33dl3/gxc-BloodPengu.py/blob/main/src/modules/README.md) on the Modules page.
 
 ## Install
+
+GitHub Clone
+
+```
+git clone https://github.com/byt3n33dl3/gxc-BloodPengu.py.git
+```
 
 Paramiko [as SSHv2](https://www.paramiko.org/) protocol.
 
@@ -44,12 +55,6 @@ pip3 install .
 
 ```
 pip3 install paramiko
-```
-
-GitHub Clone
-
-```
-git clone https://github.com/byt3n33dl3/gxc-BloodPengu.py.git
 ```
 
 ## LICENSE
