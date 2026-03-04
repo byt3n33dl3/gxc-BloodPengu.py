@@ -13,8 +13,14 @@ setup(
     version="1.4.2",
     description="Data collector in Python for BloodPengu APM",
     long_description=open("README.md").read() if __import__("os").path.exists("README.md") else "",
+    long_description_content_type="text/markdown",
     author="byt3n33dl3",
+    author_email="",
     url="https://github.com/byt3n33dl3/gxc-BloodPengu.py",
+    project_urls={
+        "Source": "https://github.com/byt3n33dl3/gxc-BloodPengu.py",
+        "Tracker": "https://github.com/byt3n33dl3/gxc-BloodPengu.py/issues",
+    },
     license="Apache-2.0",
     python_requires=">=3.7",
     install_requires=[

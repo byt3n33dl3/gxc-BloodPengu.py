@@ -5,7 +5,7 @@
   <a href="#">Mad Horv3n</a>
 </p>
 
-This if for all Modules (-M) options, helping `Adversaries` tohave custom Python script for BloodPengu.py if needed, in default BloodPengu.py is now compatible with CLI modules of:
+This if for all Modules (-M) options, helping `Adversaries` to have custom Python script for BloodPengu.py if needed, in default BloodPengu.py is now compatible with CLI modules of:
 
 - SACSPengu: `-M sacspengu`
 - AV Discovery: `-M avrisk`
