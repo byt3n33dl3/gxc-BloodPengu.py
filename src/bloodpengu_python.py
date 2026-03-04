@@ -21,7 +21,7 @@ except ImportError:
     print("\033[1;31m[!]\033[0m paramiko not installed!! Run: pip3 install paramiko")
     sys.exit(1)
 
-BP_VERSION    = "1.4.2"
+BP_VERSION    = "1.4.3"
 SUITE_VERSION = "2.0.3"
 
 RESET   = "\033[0m"
@@ -107,7 +107,7 @@ def banner():
     print(c(BORANGE, "                                 Iw-xh >I-                            "))
     print(c(BORANGE, "                                     w                                "))
     print()
-    print(c(BRED, "                           v1.4.2 [Mad Horv3n]                           "))
+    print(c(BRED, "                           v1.4.3 [Mad Horv3n]                           "))
     print()
     print(f"  {c(BORANGE, 'gxc-BloodPengu.py')} {c(DGREY, f'v{BP_VERSION}')} {c(DGREY, '|')} {c(BORANGE, 'by <@byt3n33dl3>')}")
     print(f"  {c(DGREY, 'Data collector in Python for BloodPengu APM')}")

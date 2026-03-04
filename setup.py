@@ -10,7 +10,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="bloodpengu-python",
-    version="1.4.2",
+    version="1.4.3",
     description="Data collector in Python for BloodPengu APM",
     long_description=open("README.md").read() if __import__("os").path.exists("README.md") else "",
     long_description_content_type="text/markdown",

@@ -1,7 +1,7 @@
 ## Modules
 
 <p align="center">
-  <a href="#">1.4.2</a> •
+  <a href="https://github.com/byt3n33dl3/gxc-BloodPengu.py/releases">1.4.3</a> •
   <a href="#">Mad Horv3n</a>
 </p>
 

@@ -1,10 +1,14 @@
 ## Install with Pip3
 
 ```
-pip3 install .
+pipx install bloodpengu-python
 ```
 
 Or
+
+```
+git clone https://github.com/byt3n33dl3/gxc-BloodPengu.py.git
+```
 
 ```
 pip3 install . --break-system-packages

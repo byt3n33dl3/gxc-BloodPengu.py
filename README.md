@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="#">1.4.2</a> •
+  <a href="#">1.4.3</a> •
   <a href="#">Mad Horv3n</a>
 </p>
 
@@ -41,20 +41,10 @@ Extra module with `-M`
 
 ## Install
 
-GitHub Clone
+Go to the [Install page](https://github.com/byt3n33dl3/gxc-BloodPengu.py/blob/main/Install.md) for more details, but in fast interaction just:
 
 ```
-git clone https://github.com/byt3n33dl3/gxc-BloodPengu.py.git
-```
-
-Paramiko [as SSHv2](https://www.paramiko.org/) protocol.
-
-```
-pip3 install .
-```
-
-```
-pip3 install paramiko
+pipx bloodpengu-python
 ```
 
 ## LICENSE
