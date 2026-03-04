@@ -1,8 +1,8 @@
-## gxc-BloodPengu.py Modules
+## Modules
 
 <p align="center">
   <a href="#">1.4.2</a> •
-  <a href="#">[Mad Horv3n]</a>
+  <a href="#">Mad Horv3n</a>
 </p>
 
 This if for all Modules (-M) options, helping `Adversaries` tohave custom Python script for BloodPengu.py if needed, in default BloodPengu.py is now compatible with CLI modules of:
