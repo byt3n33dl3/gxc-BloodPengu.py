@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "bloodpengu-python"
-version = "1.4.8"
+version = "1.5.2"
 description = "Data collector in Python for BloodPengu APM"
 requires-python = ">=3.7"
 license = {text = "Apache-2.0"}

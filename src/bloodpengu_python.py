@@ -21,7 +21,7 @@ except ImportError:
     print("\033[1;31m[!]\033[0m paramiko not installed!! Run: pip3 install paramiko")
     sys.exit(1)
 
-BP_VERSION    = "1.4.6"
+BP_VERSION    = "1.5.2"
 SUITE_VERSION = "2.0.3"
 
 RESET   = "\033[0m"
@@ -40,6 +40,7 @@ MODULES_DIR = os.path.join(os.path.dirname(__file__), "modules")
 BUILTIN_MODULES = {
     "sacspengu": "Compiler and Binary Analysis suggestor",
     "avrisk":    "Anti-Virus Discovery!!",
+    "brace":     "Container and Cloud Assessor",
 }
 
 
@@ -107,7 +108,7 @@ def banner():
     print(c(BORANGE, "                                 Iw-xh >I-                            "))
     print(c(BORANGE, "                                     w                                "))
     print()
-    print(c(BRED, "                           v1.4.6 [Mad Horv3n]                           "))
+    print(c(BRED, "                           v1.5.2 [SuSHi Rav3n]                          "))
     print()
     print(f"  {c(BORANGE, 'gxc-BloodPengu.py')} {c(DGREY, f'v{BP_VERSION}')} {c(DGREY, '|')} {c(BORANGE, 'by <@byt3n33dl3>')}")
     print(f"  {c(DGREY, 'Data collector in Python for BloodPengu APM')}")
@@ -179,6 +180,7 @@ def print_help():
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -d kraken.htb -v')}")
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -M sacspengu')}")
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -M avrisk')}")
+    print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -M brace')}")
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -k id_rsa -o ./results/kraken.json')}")
     print()
     print(f"  {c(DGREY, '-' * 70)}")
@@ -198,6 +200,7 @@ def print_help():
         ("env",        "DISCOVER", "Env vars, history files, interesting files in home/opt"),
         ("sacspengu",  "COMPILE",  "Compilers, writable PATH/lib dirs, capabilities, build files"),
         ("avrisk",     "RECON",    "Anti-Virus Discovery!!"),
+        ("brace",      "ESCAPE",   "Container and Cloud Assessor"),
     ]
     print(f"    {c(BORANGE, f'{'Collector':<14}')}  {c(DGREY, f'{'Role':<10}')}  {c(WHITE, 'Description')}")
     print(f"    {c(DGREY, '-' * 13)}  {c(DGREY, '-' * 9)}  {c(DGREY, '-' * 52)}")
@@ -831,6 +834,13 @@ class SSHCollector:
         else:
             log_err("Module avrisk not found in modules/")
 
+    def collect_brace(self):
+        mod = load_module("brace")
+        if mod:
+            mod.run(self)
+        else:
+            log_err("Module brace not found in modules/")
+
     def run_all(self):
         self.collect_users()
         self.collect_sudo()
@@ -844,6 +854,7 @@ class SSHCollector:
         self.collect_env()
         self.collect_sacspengu()
         self.collect_avrisk()
+        self.collect_brace()
 
     def run_module(self, module):
         available = get_available_modules()

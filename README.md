@@ -5,8 +5,8 @@
 </p>
 
 <p align="center">
-  <a href="#">1.4.6</a> •
-  <a href="#">Mad Horv3n</a>
+  <a href="https://github.com/byt3n33dl3/gxc-BloodPengu.py/releases">1.5.2</a> •
+  <a href="#">SuSHi Rav3n</a>
 </p>
 
 <hr/>
@@ -16,9 +16,9 @@
 ![Python 3 compatible](https://img.shields.io/badge/python-3.X-blue.svg)
 ![License: MIT](https://img.shields.io/badge/license-Apache_License_2.0-blue)
 
-Data ingestor in Python for `BloodPengu` APM (Attack Path Manager!!)
+Data ingestor in Python for `BloodPengu` APM F.K.A <ins>Attack Path Manager!!</ins>
 
-Enumerate via SSH logon authentication and runs the full BloodPengu enumeration pipeline. All output lands on the attacker machine as JSON file (-o out.put), ready to import directly into BloodPengu.
+Enumerate via SSH logon authentication and runs the full BloodPengu enumeration pipeline. All output lands on the attacker machine as JSON file (`-o` out.put), ready to import directly into BloodPengu.
 
 ## Features
 
@@ -44,7 +44,7 @@ Extra module with `-M`
 Go to the [Install page](https://github.com/byt3n33dl3/gxc-BloodPengu.py/blob/main/Install.md) for more details, but in fast interaction just:
 
 ```
-pipx bloodpengu-python
+pipx install bloodpengu-python
 ```
 
 ## LICENSE
@@ -80,9 +80,9 @@ pipx bloodpengu-python
 
 For more, come to the documentation for use cases and write-ups [here](https://pengu-apm.github.io/), if there's any security concern, please contact me at <byt3n33dl3@pm.me>
 
-# Contributors
+# Authored By
 
-Contributors of gxc-BloodPengu.py:
+Contributors of [gxc-BloodPengu.py:](https://github.com/byt3n33dl3/gxc-BloodPengu.py/graphs/contributors)
 
 [![](https://github.com/byt3n33dl3.png?size=50)](https://github.com/byt3n33dl3/)
 [![](https://github.com/Pennyw0rth.png?size=50)](https://github.com/Pennyw0rth/)
