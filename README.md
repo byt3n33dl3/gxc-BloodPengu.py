@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="#">1.4.3</a> •
+  <a href="#">1.4.6</a> •
   <a href="#">Mad Horv3n</a>
 </p>
 
