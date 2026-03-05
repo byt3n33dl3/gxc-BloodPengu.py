@@ -21,7 +21,7 @@ except ImportError:
     print("\033[1;31m[!]\033[0m paramiko not installed!! Run: pip3 install paramiko")
     sys.exit(1)
 
-BP_VERSION    = "1.5.2"
+BP_VERSION    = "1.5.3"
 SUITE_VERSION = "2.0.3"
 
 RESET   = "\033[0m"
@@ -41,6 +41,7 @@ BUILTIN_MODULES = {
     "sacspengu": "Compiler and Binary Analysis suggestor",
     "avrisk":    "Anti-Virus Discovery!!",
     "brace":     "Container and Cloud Assessor",
+    "kernel":    "Kernel and LPE CVE's checklists!!",
 }
 
 
@@ -75,40 +76,13 @@ def log_verbose(collector, key, val):
 
 def banner():
     print()
-    print(c(BORANGE, "                                                                      "))
-    print(c(BORANGE, "                /MM0MM                                                "))
-    print(c(BORANGE, "                     hM       -w1MMMxXX                               "))
-    print(c(BORANGE, "                           wMMMMMMMMMMM0hM                            "))
-    print(c(BORANGE, "                     h  /0MMhMhhMMM0MMMhMMMh                          "))
-    print(c(BORANGE, "                       M/h0hMMxM/1hhhM>hhh^x/^                        "))
-    print(c(BORANGE, "                    hhMhMX hhMh       0>     ww                       "))
-    print(c(BORANGE, "                  MM   M0Mh0 -w      -xhI    ^                        "))
-    print(c(BORANGE, "                    --h-1/Mh>h-      0w    -  x                       "))
-    print(c(BORANGE, "                   -XXXw>1h wwIhXww-hhh^   whwhh                      "))
-    print(c(BORANGE, "                    X>I^h1 Iw- 0hMhhhhhwhhhhh                         "))
-    print(c(BORANGE, "                    ^MI0-1 ^^Xww hhX> M1hwhMwh                        "))
-    print(c(BORANGE, "                  I >1 h^ >/  hw0-I0MXMMxwhMhhx     Mh> w             "))
-    print(c(BORANGE, "                 11 hhhhh1  /II00 ^0xMX1^hwh hh          0/           "))
-    print(c(BORANGE, "               x>0-xh ^x/  Xx^w0   h1Mh0Ihwh X>>0      wwM/           "))
-    print(c(BORANGE, "               1 -xw  X  w0hxh>   h/hM-/>hXh^   >w>XhwXwIX            "))
-    print(c(BORANGE, "              1 w0h>   w/-hhw xx- MMwhw^0w1  >w  -I II                "))
-    print(c(BORANGE, "              Ix 0hM x/w0 1h > X Ihhhh h/0^ /hhh/w/x                  "))
-    print(c(BORANGE, "              h w^-h>wh^I hxM  hhMhhh  wh- Ix1 Mhxhhhhw               "))
-    print(c(BORANGE, "                 0>00/1X   hhhhhh1hh w0x1 ->X/0> w^ hIhhw>            "))
-    print(c(BORANGE, "           >w0/ -   /     1I^Xww1 -X0> - 1w00X1X  10 - wXXx           "))
-    print(c(BORANGE, "           I00-        w00/  I  >0xhX/ 1  0/1Ix0wIx    Iw/x           "))
-    print(c(BORANGE, "            1 wwhhhhhh1h > 11  00-hh^ x1    ^   w>wXw 0X0I            "))
-    print(c(BORANGE, "            w/w1--  ^^wI^ >>  wwhhh0 ^I -w / 0   X>x -1  1^           "))
-    print(c(BORANGE, "              X 0I1 0^x1^x0   0whwI  ^wx  x>h ^   I   1x 1            "))
-    print(c(BORANGE, "                        Xx    xwhwX  w//  11 X/0  11  1 >I            "))
-    print(c(BORANGE, "                       Ix/    h/h>I  0    h>-1I0   >I>>               "))
-    print(c(BORANGE, "                       > x/ 0  /hw>> ^XX0w- X>h^                      "))
-    print(c(BORANGE, "                            -  -whxwww10^-hw/^0                       "))
-    print(c(BORANGE, "                                ^--^  -^0w/>ww                        "))
-    print(c(BORANGE, "                                 Iw-xh >I-                            "))
-    print(c(BORANGE, "                                     w                                "))
+    print(c(BORANGE, "         _  __        ___  __             _____                                "))
+    print(c(BORANGE, "   ___ _| |/_/_______/ _ )/ /__  ___  ___/ / _ \\___ ___  ___ ___ __  ___  __ __"))
+    print(c(BRED, "  / _ `/>  </ __/___/ _  / / _ \\/ _ \\/ _  / ___/ -_) _ \\/ _ `/ // / / _ \\/ // /"))
+    print(c(BORANGE, "  \\_, /_/|_|\\__/   /____/_/\\___/\\___/\\_,_/_/   \\__/_//_/\\_, /\\_,_(_) .__/\\_, / "))
+    print(c(BORANGE, " /___/                                                 /___/      /_/   /___/  "))
     print()
-    print(c(BRED, "                           v1.5.2 [SuSHi Rav3n]                          "))
+    print(c(BRED,    "                           v1.5.3 [SuSHi Rav3n]                          "))
     print()
     print(f"  {c(BORANGE, 'gxc-BloodPengu.py')} {c(DGREY, f'v{BP_VERSION}')} {c(DGREY, '|')} {c(BORANGE, 'by <@byt3n33dl3>')}")
     print(f"  {c(DGREY, 'Data collector in Python for BloodPengu APM')}")
@@ -154,6 +128,9 @@ def print_help():
     print()
     print(f"    {c(BORANGE, '-d')} {c(WHITE, 'DOMAIN')}            {c(DGREY, 'Domain or hostname  ')}{c(ORANGE, '(stored in output for BloodPengu context)')}")
     print(f"    {c(BORANGE, '--port')} {c(WHITE, 'PORT')}          {c(DGREY, 'SSH port  ')}{c(ORANGE, '(default: 22)')}")
+    print(f"    {c(BORANGE, '--old-ssh')}            {c(DGREY, 'Enable legacy SSH algorithms  ')}{c(ORANGE, '(for old OpenSSH targets)')}")
+    print(f"    {c(BORANGE, '--jumphost')} {c(WHITE, 'HOST')}      {c(DGREY, 'Pivot via jump host  ')}{c(ORANGE, '(format: user:pass@host:port)')}")
+    print(f"    {c(BORANGE, '--jumphost-key')} {c(WHITE, 'FILE')}  {c(DGREY, 'Key file for jump host auth')}")
     print()
     print(f"{c(BORANGE, '  Modules:')}  {c(DGREY, '(all collectors run by default, use -M to run one only)')}")
     print()
@@ -181,6 +158,7 @@ def print_help():
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -M sacspengu')}")
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -M avrisk')}")
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -M brace')}")
+    print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -M kernel')}")
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -k id_rsa -o ./results/kraken.json')}")
     print()
     print(f"  {c(DGREY, '-' * 70)}")
@@ -201,6 +179,7 @@ def print_help():
         ("sacspengu",  "COMPILE",  "Compilers, writable PATH/lib dirs, capabilities, build files"),
         ("avrisk",     "RECON",    "Anti-Virus Discovery!!"),
         ("brace",      "ESCAPE",   "Container and Cloud Assessor"),
+        ("kernel",     "RECON",    "Kernel and LPE CVE's checklists!!"),
     ]
     print(f"    {c(BORANGE, f'{'Collector':<14}')}  {c(DGREY, f'{'Role':<10}')}  {c(WHITE, 'Description')}")
     print(f"    {c(DGREY, '-' * 13)}  {c(DGREY, '-' * 9)}  {c(DGREY, '-' * 52)}")
@@ -271,45 +250,263 @@ PRIV_GROUPS = {
 }
 
 KERNEL_CVES = {
-    "5.8.0":  [
-        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+
+    "2.4.22": [
+        ("CVE-2003-0985", "critical", "Linux mremap() boundary check LPE",                        "https://nvd.nist.gov/vuln/detail/CVE-2003-0985"),
+    ],
+    "2.4.29": [
+        ("CVE-2005-0736", "high",     "Linux ptrace privilege escalation",                        "https://nvd.nist.gov/vuln/detail/CVE-2005-0736"),
+    ],
+    "2.6.9":  [
+        ("CVE-2004-1235", "critical", "Linux uselib() privilege escalation",                      "https://nvd.nist.gov/vuln/detail/CVE-2004-1235"),
+        ("CVE-2005-0001", "high",     "Linux i386 SMP page fault handler LPE",                   "https://nvd.nist.gov/vuln/detail/CVE-2005-0001"),
+    ],
+    "2.6.17": [
+        ("CVE-2006-2451", "critical", "Linux prctl() privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2006-2451"),
+    ],
+    "2.6.18": [
+        ("CVE-2007-4573", "critical", "Linux x86_64 ptrace privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2007-4573"),
+        ("CVE-2008-0600", "critical", "Linux vmsplice privilege escalation",                      "https://nvd.nist.gov/vuln/detail/CVE-2008-0600"),
+        ("CVE-2008-4210", "high",     "Linux open() O_EXCL privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2008-4210"),
+    ],
+    "2.6.22": [
+        ("CVE-2008-0600", "critical", "Linux vmsplice privilege escalation",                      "https://nvd.nist.gov/vuln/detail/CVE-2008-0600"),
+        ("CVE-2009-1185", "critical", "Linux udevd netlink privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2009-1185"),
+        ("CVE-2012-0056", "high",     "Linux /proc/pid/mem privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2012-0056"),
+    ],
+    "2.6.24": [
+        ("CVE-2009-1185", "critical", "Linux udevd netlink privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2009-1185"),
+        ("CVE-2009-2692", "critical", "Linux sock_sendpage NULL ptr dereference LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2009-2692"),
+    ],
+    "2.6.28": [
+        ("CVE-2009-2692", "critical", "Linux sock_sendpage NULL ptr dereference LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2009-2692"),
+        ("CVE-2010-1146", "high",     "Linux ReiserFS privilege escalation",                      "https://nvd.nist.gov/vuln/detail/CVE-2010-1146"),
+    ],
+    "2.6.30": [
+        ("CVE-2010-2959", "high",     "Linux CAN BCM privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2010-2959"),
+        ("CVE-2010-3081", "critical", "Linux 64-bit compat syscall privilege escalation",         "https://nvd.nist.gov/vuln/detail/CVE-2010-3081"),
+    ],
+    "2.6.32": [
+        ("CVE-2010-3081", "critical", "Linux 64-bit compat syscall privilege escalation",         "https://nvd.nist.gov/vuln/detail/CVE-2010-3081"),
+        ("CVE-2010-3904", "critical", "Linux RDS protocol privilege escalation",                  "https://nvd.nist.gov/vuln/detail/CVE-2010-3904"),
+        ("CVE-2012-0056", "high",     "Linux /proc/pid/mem privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2012-0056"),
+        ("CVE-2013-2094", "critical", "Linux perf_events privilege escalation",                   "https://nvd.nist.gov/vuln/detail/CVE-2013-2094"),
+        ("CVE-2014-4699", "high",     "Linux ptrace privilege escalation",                        "https://nvd.nist.gov/vuln/detail/CVE-2014-4699"),
+    ],
+    "2.6.36": [
+        ("CVE-2010-4258", "critical", "Linux kernel do_exit() privilege escalation",              "https://nvd.nist.gov/vuln/detail/CVE-2010-4258"),
+    ],
+    "2.6.39": [
+        ("CVE-2011-1770", "high",     "Linux DCCP privilege escalation",                          "https://nvd.nist.gov/vuln/detail/CVE-2011-1770"),
+    ],
+    "3.0.0":  [
+        ("CVE-2012-0056", "high",     "Linux /proc/pid/mem privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2012-0056"),
+        ("CVE-2013-2094", "critical", "Linux perf_events privilege escalation",                   "https://nvd.nist.gov/vuln/detail/CVE-2013-2094"),
+    ],
+    "3.2.0":  [
+        ("CVE-2013-2094", "critical", "Linux perf_events privilege escalation",                   "https://nvd.nist.gov/vuln/detail/CVE-2013-2094"),
+        ("CVE-2014-0038", "high",     "Linux recvmmsg privilege escalation",                      "https://nvd.nist.gov/vuln/detail/CVE-2014-0038"),
+        ("CVE-2015-1328", "critical", "Ubuntu overlayfs local privilege escalation",              "https://nvd.nist.gov/vuln/detail/CVE-2015-1328"),
+    ],
+    "3.4.0":  [
+        ("CVE-2013-2094", "critical", "Linux perf_events privilege escalation",                   "https://nvd.nist.gov/vuln/detail/CVE-2013-2094"),
+        ("CVE-2013-1858", "high",     "Linux clone() privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2013-1858"),
+    ],
+    "3.8.0":  [
+        ("CVE-2013-2094", "critical", "Linux perf_events privilege escalation",                   "https://nvd.nist.gov/vuln/detail/CVE-2013-2094"),
+        ("CVE-2014-3153", "critical", "Linux futex privilege escalation - Towelroot",             "https://nvd.nist.gov/vuln/detail/CVE-2014-3153"),
+    ],
+    "3.10.0": [
+        ("CVE-2014-3153", "critical", "Linux futex privilege escalation - Towelroot",             "https://nvd.nist.gov/vuln/detail/CVE-2014-3153"),
+        ("CVE-2014-4699", "high",     "Linux ptrace privilege escalation",                        "https://nvd.nist.gov/vuln/detail/CVE-2014-4699"),
+        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",           "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
+        ("CVE-2017-7308", "high",     "Linux packet_set_ring privilege escalation",               "https://nvd.nist.gov/vuln/detail/CVE-2017-7308"),
         ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+    ],
+    "3.13.0": [
+        ("CVE-2015-1328", "critical", "Ubuntu overlayfs local privilege escalation",              "https://nvd.nist.gov/vuln/detail/CVE-2015-1328"),
+        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",           "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
+        ("CVE-2014-3153", "critical", "Linux futex privilege escalation - Towelroot",             "https://nvd.nist.gov/vuln/detail/CVE-2014-3153"),
+    ],
+    "3.16.0": [
+        ("CVE-2015-1328", "critical", "Ubuntu overlayfs local privilege escalation",              "https://nvd.nist.gov/vuln/detail/CVE-2015-1328"),
+        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",           "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
+        ("CVE-2015-8660", "high",     "Linux overlayfs setuid privilege escalation",              "https://nvd.nist.gov/vuln/detail/CVE-2015-8660"),
+    ],
+    "3.19.0": [
+        ("CVE-2015-1328", "critical", "Ubuntu overlayfs local privilege escalation",              "https://nvd.nist.gov/vuln/detail/CVE-2015-1328"),
+        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",           "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
+        ("CVE-2015-8660", "high",     "Linux overlayfs setuid privilege escalation",              "https://nvd.nist.gov/vuln/detail/CVE-2015-8660"),
+    ],
+    "4.2.0":  [
+        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",           "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
+        ("CVE-2015-8660", "high",     "Linux overlayfs setuid privilege escalation",              "https://nvd.nist.gov/vuln/detail/CVE-2015-8660"),
+    ],
+    "4.3.0":  [
+        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",           "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
+    ],
+    "4.4.0":  [
+        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",           "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
+        ("CVE-2017-7308", "high",     "Linux packet_set_ring privilege escalation",               "https://nvd.nist.gov/vuln/detail/CVE-2017-7308"),
+        ("CVE-2017-16995","high",     "Linux eBPF verifier privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2017-16995"),
+        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+    ],
+    "4.8.0":  [
+        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",           "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
+        ("CVE-2017-7308", "high",     "Linux packet_set_ring privilege escalation",               "https://nvd.nist.gov/vuln/detail/CVE-2017-7308"),
+        ("CVE-2017-16995","high",     "Linux eBPF verifier privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2017-16995"),
+    ],
+    "4.9.0":  [
+        ("CVE-2017-7308", "high",     "Linux packet_set_ring privilege escalation",               "https://nvd.nist.gov/vuln/detail/CVE-2017-7308"),
+        ("CVE-2017-16995","high",     "Linux eBPF verifier privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2017-16995"),
+        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+    ],
+    "4.10.0": [
+        ("CVE-2017-7308", "high",     "Linux packet_set_ring privilege escalation",               "https://nvd.nist.gov/vuln/detail/CVE-2017-7308"),
+        ("CVE-2017-16995","high",     "Linux eBPF verifier privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2017-16995"),
+    ],
+    "4.13.0": [
+        ("CVE-2017-16995","high",     "Linux eBPF verifier privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2017-16995"),
+        ("CVE-2017-1000112","critical","Linux UDP fragmentation offload privilege escalation",     "https://nvd.nist.gov/vuln/detail/CVE-2017-1000112"),
+    ],
+    "4.14.0": [
+        ("CVE-2017-16995","high",     "Linux eBPF verifier privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2017-16995"),
+        ("CVE-2017-1000405","high",   "Huge Dirty COW - huge page privilege escalation",          "https://nvd.nist.gov/vuln/detail/CVE-2017-1000405"),
+        ("CVE-2018-18955","high",     "Linux user namespace privilege escalation",                "https://nvd.nist.gov/vuln/detail/CVE-2018-18955"),
+        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+    ],
+    "4.15.0": [
+        ("CVE-2018-18955","high",     "Linux user namespace privilege escalation",                "https://nvd.nist.gov/vuln/detail/CVE-2018-18955"),
+        ("CVE-2019-13272","high",     "PTRACE_TRACEME pkexec local privilege escalation",         "https://nvd.nist.gov/vuln/detail/CVE-2019-13272"),
+        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+        ("CVE-2022-0847", "high",     "Dirty Pipe - overwrite data in arbitrary read-only files", "https://nvd.nist.gov/vuln/detail/CVE-2022-0847"),
+    ],
+    "4.18.0": [
+        ("CVE-2018-18955","high",     "Linux user namespace privilege escalation",                "https://nvd.nist.gov/vuln/detail/CVE-2018-18955"),
+        ("CVE-2019-13272","high",     "PTRACE_TRACEME pkexec local privilege escalation",         "https://nvd.nist.gov/vuln/detail/CVE-2019-13272"),
+        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+    ],
+    #5.x era
+    "5.0.0":  [
+        ("CVE-2019-13272","high",     "PTRACE_TRACEME pkexec local privilege escalation",         "https://nvd.nist.gov/vuln/detail/CVE-2019-13272"),
+        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+    ],
+    "5.3.0":  [
+        ("CVE-2019-14287","high",     "Sudo bypass via user ID -1",                               "https://nvd.nist.gov/vuln/detail/CVE-2019-14287"),
+        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
     ],
     "5.4.0":  [
         ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
         ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
         ("CVE-2022-0847", "high",     "Dirty Pipe - overwrite data in arbitrary read-only files", "https://nvd.nist.gov/vuln/detail/CVE-2022-0847"),
+        ("CVE-2021-22555","critical", "Linux netfilter heap out-of-bounds write LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2021-22555"),
+        ("CVE-2022-1015", "high",     "Linux netfilter nf_tables out-of-bounds write",            "https://nvd.nist.gov/vuln/detail/CVE-2022-1015"),
+        ("CVE-2023-0179", "high",     "Linux netfilter nftables stack overflow LPE",              "https://nvd.nist.gov/vuln/detail/CVE-2023-0179"),
+    ],
+    "5.6.0":  [
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
+        ("CVE-2021-22555","critical", "Linux netfilter heap out-of-bounds write LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2021-22555"),
+        ("CVE-2022-0847", "high",     "Dirty Pipe - overwrite data in arbitrary read-only files", "https://nvd.nist.gov/vuln/detail/CVE-2022-0847"),
+    ],
+    "5.8.0":  [
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
+        ("CVE-2021-22555","critical", "Linux netfilter heap out-of-bounds write LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2021-22555"),
+        ("CVE-2022-0847", "high",     "Dirty Pipe - overwrite data in arbitrary read-only files", "https://nvd.nist.gov/vuln/detail/CVE-2022-0847"),
+        ("CVE-2022-25636","high",     "Netfilter heap out-of-bounds write",                       "https://nvd.nist.gov/vuln/detail/CVE-2022-25636"),
+    ],
+    "5.10.0": [
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+        ("CVE-2021-3156", "high",     "Sudo heap-based buffer overflow",                          "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"),
+        ("CVE-2022-0847", "high",     "Dirty Pipe - overwrite data in arbitrary read-only files", "https://nvd.nist.gov/vuln/detail/CVE-2022-0847"),
+        ("CVE-2022-1015", "high",     "Linux netfilter nf_tables out-of-bounds write",            "https://nvd.nist.gov/vuln/detail/CVE-2022-1015"),
+        ("CVE-2022-34918","critical", "Linux netfilter nf_tables type confusion LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2022-34918"),
+        ("CVE-2023-0179", "high",     "Linux netfilter nftables stack overflow LPE",              "https://nvd.nist.gov/vuln/detail/CVE-2023-0179"),
+        ("CVE-2023-32629","critical", "Ubuntu GameOver(lay) overlayfs privilege escalation",      "https://nvd.nist.gov/vuln/detail/CVE-2023-32629"),
+        ("CVE-2023-2640", "critical", "Ubuntu GameOver(lay) overlayfs privilege escalation",      "https://nvd.nist.gov/vuln/detail/CVE-2023-2640"),
     ],
     "5.11.0": [
         ("CVE-2022-0847", "high",     "Dirty Pipe - overwrite data in arbitrary read-only files", "https://nvd.nist.gov/vuln/detail/CVE-2022-0847"),
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+        ("CVE-2022-1015", "high",     "Linux netfilter nf_tables out-of-bounds write",            "https://nvd.nist.gov/vuln/detail/CVE-2022-1015"),
     ],
-    "4.4.0":  [
-        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",           "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
+    "5.13.0": [
+        ("CVE-2021-4034", "high",     "Polkit pkexec privilege escalation",                       "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"),
+        ("CVE-2022-0847", "high",     "Dirty Pipe - overwrite data in arbitrary read-only files", "https://nvd.nist.gov/vuln/detail/CVE-2022-0847"),
+        ("CVE-2022-1015", "high",     "Linux netfilter nf_tables out-of-bounds write",            "https://nvd.nist.gov/vuln/detail/CVE-2022-1015"),
+        ("CVE-2022-34918","critical", "Linux netfilter nf_tables type confusion LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2022-34918"),
+        ("CVE-2023-32629","critical", "Ubuntu GameOver(lay) overlayfs privilege escalation",      "https://nvd.nist.gov/vuln/detail/CVE-2023-32629"),
+        ("CVE-2023-2640", "critical", "Ubuntu GameOver(lay) overlayfs privilege escalation",      "https://nvd.nist.gov/vuln/detail/CVE-2023-2640"),
     ],
-    "4.15.0": [
-        ("CVE-2018-18955","high",     "Linux kernel privilege escalation via user namespaces",     "https://nvd.nist.gov/vuln/detail/CVE-2018-18955"),
-        ("CVE-2019-13272","high",     "PTRACE_TRACEME pkexec local privilege escalation",         "https://nvd.nist.gov/vuln/detail/CVE-2019-13272"),
-    ],
-    "3.13.0": [
-        ("CVE-2015-1328", "critical", "Ubuntu overlayfs local privilege escalation",              "https://nvd.nist.gov/vuln/detail/CVE-2015-1328"),
-    ],
-    "2.6.22": [
-        ("CVE-2012-0056", "high",     "Linux /proc/pid/mem privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2012-0056"),
-    ],
-    "4.3.0":  [
-        ("CVE-2016-5195", "critical", "Dirty COW - write to read-only memory mappings",           "https://nvd.nist.gov/vuln/detail/CVE-2016-5195"),
+    "5.15.0": [
+        ("CVE-2022-0847", "high",     "Dirty Pipe - overwrite data in arbitrary read-only files", "https://nvd.nist.gov/vuln/detail/CVE-2022-0847"),
+        ("CVE-2022-1015", "high",     "Linux netfilter nf_tables out-of-bounds write",            "https://nvd.nist.gov/vuln/detail/CVE-2022-1015"),
+        ("CVE-2022-34918","critical", "Linux netfilter nf_tables type confusion LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2022-34918"),
+        ("CVE-2022-2586", "high",     "Linux netfilter nf_tables use-after-free LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2022-2586"),
+        ("CVE-2023-32629","critical", "Ubuntu GameOver(lay) overlayfs privilege escalation",      "https://nvd.nist.gov/vuln/detail/CVE-2023-32629"),
+        ("CVE-2023-2640", "critical", "Ubuntu GameOver(lay) overlayfs privilege escalation",      "https://nvd.nist.gov/vuln/detail/CVE-2023-2640"),
+        ("CVE-2023-4147", "high",     "Linux netfilter nf_tables use-after-free",                 "https://nvd.nist.gov/vuln/detail/CVE-2023-4147"),
+        ("CVE-2024-1086", "critical", "Linux netfilter nf_tables use-after-free LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2024-1086"),
     ],
     "5.16.0": [
         ("CVE-2022-0847", "high",     "Dirty Pipe - overwrite data in arbitrary read-only files", "https://nvd.nist.gov/vuln/detail/CVE-2022-0847"),
+        ("CVE-2022-25636","high",     "Netfilter heap out-of-bounds write",                       "https://nvd.nist.gov/vuln/detail/CVE-2022-25636"),
+        ("CVE-2022-34918","critical", "Linux netfilter nf_tables type confusion LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2022-34918"),
     ],
     "5.17.0": [
         ("CVE-2022-25636","high",     "Netfilter heap out-of-bounds write",                       "https://nvd.nist.gov/vuln/detail/CVE-2022-25636"),
+        ("CVE-2022-34918","critical", "Linux netfilter nf_tables type confusion LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2022-34918"),
+        ("CVE-2022-2586", "high",     "Linux netfilter nf_tables use-after-free LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2022-2586"),
     ],
-    "4.10.0": [
-        ("CVE-2017-7308", "high",     "Linux packet_set_ring privilege escalation",               "https://nvd.nist.gov/vuln/detail/CVE-2017-7308"),
+    "6.1.0":  [
+        ("CVE-2023-0179", "high",     "Linux netfilter nftables stack overflow LPE",              "https://nvd.nist.gov/vuln/detail/CVE-2023-0179"),
+        ("CVE-2023-4147", "high",     "Linux netfilter nf_tables use-after-free",                 "https://nvd.nist.gov/vuln/detail/CVE-2023-4147"),
+        ("CVE-2024-1086", "critical", "Linux netfilter nf_tables use-after-free LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2024-1086"),
+        ("CVE-2023-6931", "high",     "Linux perf subsystem out-of-bounds write LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2023-6931"),
     ],
-    "4.14.0": [
-        ("CVE-2017-16995","high",     "Linux eBPF verifier privilege escalation",                 "https://nvd.nist.gov/vuln/detail/CVE-2017-16995"),
+    "6.2.0":  [
+        ("CVE-2023-4147", "high",     "Linux netfilter nf_tables use-after-free",                 "https://nvd.nist.gov/vuln/detail/CVE-2023-4147"),
+        ("CVE-2024-1086", "critical", "Linux netfilter nf_tables use-after-free LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2024-1086"),
+    ],
+    "6.4.0":  [
+        ("CVE-2023-4147", "high",     "Linux netfilter nf_tables use-after-free",                 "https://nvd.nist.gov/vuln/detail/CVE-2023-4147"),
+        ("CVE-2024-1086", "critical", "Linux netfilter nf_tables use-after-free LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2024-1086"),
+        ("CVE-2023-6931", "high",     "Linux perf subsystem out-of-bounds write LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2023-6931"),
+    ],
+    "6.5.0":  [
+        ("CVE-2024-1086", "critical", "Linux netfilter nf_tables use-after-free LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2024-1086"),
+        ("CVE-2023-6931", "high",     "Linux perf subsystem out-of-bounds write LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2023-6931"),
+        ("CVE-2024-26925","high",     "Linux netfilter race condition LPE",                       "https://nvd.nist.gov/vuln/detail/CVE-2024-26925"),
+    ],
+    "6.6.0":  [
+        ("CVE-2024-1086", "critical", "Linux netfilter nf_tables use-after-free LPE",             "https://nvd.nist.gov/vuln/detail/CVE-2024-1086"),
+        ("CVE-2024-26925","high",     "Linux netfilter race condition LPE",                       "https://nvd.nist.gov/vuln/detail/CVE-2024-26925"),
+        ("CVE-2024-26584","high",     "Linux TLS kernel use-after-free",                          "https://nvd.nist.gov/vuln/detail/CVE-2024-26584"),
+    ],
+    "6.8.0":  [
+        ("CVE-2024-26925","high",     "Linux netfilter race condition LPE",                       "https://nvd.nist.gov/vuln/detail/CVE-2024-26925"),
+        ("CVE-2024-26584","high",     "Linux TLS kernel use-after-free",                          "https://nvd.nist.gov/vuln/detail/CVE-2024-26584"),
+        ("CVE-2024-36886","high",     "Linux TIPC out-of-bounds read LPE",                        "https://nvd.nist.gov/vuln/detail/CVE-2024-36886"),
+        ("CVE-2025-21756","critical", "Attack of the Vsock - vsock VM escape to host root",       "https://nvd.nist.gov/vuln/detail/CVE-2025-21756"),
+    ],
+    "6.10.0": [
+        ("CVE-2024-36886","high",     "Linux TIPC out-of-bounds read LPE",                        "https://nvd.nist.gov/vuln/detail/CVE-2024-36886"),
+        ("CVE-2024-41090","high",     "Linux virtio-net double-free LPE",                         "https://nvd.nist.gov/vuln/detail/CVE-2024-41090"),
+    ],
+    "6.11.0": [
+        ("CVE-2025-21756","critical", "Attack of the Vsock - vsock VM escape to host root",       "https://nvd.nist.gov/vuln/detail/CVE-2025-21756"),
+    ],
+    "6.12.0": [
+        ("CVE-2025-21756","critical", "Attack of the Vsock - vsock VM escape to host root",       "https://nvd.nist.gov/vuln/detail/CVE-2025-21756"),
     ],
 }
 
@@ -841,6 +1038,68 @@ class SSHCollector:
         else:
             log_err("Module brace not found in modules/")
 
+    def collect_kernel_module(self):
+        log_info("Running kernel CVE checklist...")
+        cu_id   = f"user:{self._current_user}"
+        uname_r = self.run("uname -r").strip()
+        if not uname_r:
+            uname_r = self._kernel or "unknown"
+        self._kernel = uname_r
+        kernel_base  = ".".join(uname_r.split(".")[:3])
+
+        matched = []
+        for k_ver, cve_list in KERNEL_CVES.items():
+            if kernel_base.startswith(k_ver):
+                matched.extend(cve_list)
+
+        seen    = set()
+        deduped = []
+        for entry in matched:
+            if entry[0] not in seen:
+                seen.add(entry[0])
+                deduped.append(entry)
+
+        for cve, risk, desc, ref in deduped:
+            tier = "CRITICAL" if risk == "critical" else "HIGH"
+            self._add_finding(tier, "kernel",
+                f"{cve}  |  {desc}  |  kernel {uname_r}", uname_r)
+            self._add_edge(cu_id, "KernelExploit", "user:root", risk=risk,
+                           properties={"cve": cve, "description": desc,
+                                       "kernel_version": uname_r, "reference": ref})
+
+        sudo_ver = self.run("sudo --version 2>/dev/null | head -1").strip()
+        if sudo_ver:
+            self._add_finding("POTENTIAL", "kernel",
+                f"Sudo version: {sudo_ver}  |  verify against CVE-2021-3156 / CVE-2019-14287", sudo_ver)
+
+        polkit_ver = self.run("pkexec --version 2>/dev/null").strip()
+        if polkit_ver:
+            self._add_finding("POTENTIAL", "kernel",
+                f"Polkit version: {polkit_ver}  |  verify against CVE-2021-4034", polkit_ver)
+
+        glibc_ver = self.run("ldd --version 2>/dev/null | head -1").strip()
+        if glibc_ver:
+            self._add_finding("POTENTIAL", "kernel",
+                f"glibc: {glibc_ver}  |  verify against CVE-2015-7547 / CVE-2023-4911 Looney Tunables", glibc_ver)
+
+        looney = self.run("ldd --version 2>/dev/null | head -1 | grep -oE '[0-9]+\\.[0-9]+'").strip()
+        if looney:
+            try:
+                major, minor = looney.split(".")
+                if int(major) == 2 and int(minor) <= 37:
+                    self._add_finding("CRITICAL", "kernel",
+                        f"glibc {looney} vulnerable to CVE-2023-4911 Looney Tunables - SUID LPE via GLIBC_TUNABLES",
+                        "https://nvd.nist.gov/vuln/detail/CVE-2023-4911")
+                    self._add_edge(cu_id, "KernelExploit", "user:root", risk="critical",
+                                   properties={"cve": "CVE-2023-4911",
+                                               "description": "Looney Tunables glibc GLIBC_TUNABLES buffer overflow",
+                                               "kernel_version": uname_r,
+                                               "reference": "https://nvd.nist.gov/vuln/detail/CVE-2023-4911"})
+            except Exception:
+                pass
+
+        log_ok(f"Kernel: {uname_r}  |  CVE matches: {len(deduped)}")
+
     def run_all(self):
         self.collect_users()
         self.collect_sudo()
@@ -855,6 +1114,7 @@ class SSHCollector:
         self.collect_sacspengu()
         self.collect_avrisk()
         self.collect_brace()
+        self.collect_kernel_module()
 
     def run_module(self, module):
         available = get_available_modules()
@@ -863,6 +1123,9 @@ class SSHCollector:
             sys.exit(1)
         self.collect_users()
         self.collect_groups()
+        if module == "kernel":
+            self.collect_kernel_module()
+            return
         mod = load_module(module)
         if not mod:
             log_err(f"Could not load module file: modules/{module}.py")
@@ -870,42 +1133,149 @@ class SSHCollector:
         mod.run(self)
 
 
-def connect_ssh(target, port, username, password, key_file):
+LEGACY_ALGORITHMS = {
+    "keys":     ["rsa-sha2-256", "rsa-sha2-512", "ssh-rsa"],
+    "kex":      [
+        "diffie-hellman-group1-sha1",
+        "diffie-hellman-group14-sha1",
+        "diffie-hellman-group-exchange-sha1",
+        "diffie-hellman-group14-sha256",
+        "diffie-hellman-group-exchange-sha256",
+        "ecdh-sha2-nistp256",
+        "ecdh-sha2-nistp384",
+        "ecdh-sha2-nistp521",
+        "curve25519-sha256",
+        "curve25519-sha256@libssh.org",
+    ],
+    "ciphers":  [
+        "aes128-cbc", "aes192-cbc", "aes256-cbc",
+        "3des-cbc", "blowfish-cbc", "arcfour", "arcfour128", "arcfour256",
+        "aes128-ctr", "aes192-ctr", "aes256-ctr",
+        "aes128-gcm@openssh.com", "aes256-gcm@openssh.com",
+    ],
+    "macs":     [
+        "hmac-sha1", "hmac-sha1-96", "hmac-md5", "hmac-md5-96",
+        "hmac-sha2-256", "hmac-sha2-512",
+        "umac-64@openssh.com", "umac-128@openssh.com",
+    ],
+    "pubkeys":  [
+        "ssh-rsa", "ssh-dss",
+        "ecdsa-sha2-nistp256", "ecdsa-sha2-nistp384", "ecdsa-sha2-nistp521",
+        "ssh-ed25519", "rsa-sha2-256", "rsa-sha2-512",
+    ],
+}
+
+
+def _load_pkey(key_file):
+    try:
+        return paramiko.PKey.from_private_key_file(key_file)
+    except AttributeError:
+        pass
+    except Exception:
+        pass
+    for key_class in (paramiko.RSAKey, paramiko.Ed25519Key, paramiko.ECDSAKey):
+        try:
+            return key_class.from_private_key_file(key_file)
+        except Exception:
+            continue
+    return None
+
+
+def _connect_kwargs(old_ssh):
+    kwargs = {
+        "timeout":      30,
+        "auth_timeout": 30,
+        "allow_agent":  False,
+        "look_for_keys":False,
+    }
+    if old_ssh:
+        kwargs["disabled_algorithms"] = {"pubkeys": []}
+        kwargs["preferred_algorithms"] = LEGACY_ALGORITHMS
+    return kwargs
+
+
+def _jump_sock(jumphost, jumphost_key, old_ssh, target, port):
+    parts    = jumphost.split("@")
+    userpart = parts[0] if len(parts) == 2 else "root"
+    hostpart = parts[-1]
+
+    jpass = None
+    juser = userpart
+    if ":" in juser:
+        juser, jpass = juser.split(":", 1)
+
+    jhost = hostpart
+    jport = 22
+    if ":" in hostpart:
+        jhost, jport_str = hostpart.rsplit(":", 1)
+        try:
+            jport = int(jport_str)
+        except ValueError:
+            pass
+
+    jclient = paramiko.SSHClient()
+    jclient.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+    kw = _connect_kwargs(old_ssh)
+
+    if jumphost_key:
+        jumphost_key = os.path.expanduser(jumphost_key)
+        pkey = _load_pkey(jumphost_key)
+        if pkey is None:
+            log_err(f"Could not load jumphost key: {jumphost_key}")
+            sys.exit(1)
+        jclient.connect(hostname=jhost, port=jport, username=juser, pkey=pkey, **kw)
+    else:
+        jclient.connect(hostname=jhost, port=jport, username=juser, password=jpass, **kw)
+
+    transport = jclient.get_transport()
+    channel   = transport.open_channel(
+        "direct-tcpip",
+        (target, port),
+        ("127.0.0.1", 0),
+    )
+    return channel, jclient
+
+
+def connect_ssh(target, port, username, password, key_file,
+                old_ssh=False, jumphost=None, jumphost_key=None):
     client = paramiko.SSHClient()
     client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+    sock       = None
+    jclient    = None
+
+    if jumphost:
+        sock, jclient = _jump_sock(jumphost, jumphost_key, old_ssh, target, port)
+    else:
+        try:
+            raw = socket.create_connection((target, port), timeout=30)
+            raw.settimeout(None)
+            sock = raw
+        except Exception:
+            sock = None
+
+    kw = _connect_kwargs(old_ssh)
+    if sock is not None:
+        kw["sock"] = sock
+
     try:
         if key_file:
             key_file = os.path.expanduser(key_file)
             if not os.path.exists(key_file):
                 log_err(f"Key file not found: {key_file}")
                 sys.exit(1)
-            try:
-                pkey = paramiko.PKey.from_private_key_file(key_file)
-            except AttributeError:
-                pkey = None
-                for key_class in (paramiko.RSAKey, paramiko.Ed25519Key, paramiko.ECDSAKey):
-                    try:
-                        pkey = key_class.from_private_key_file(key_file)
-                        break
-                    except Exception:
-                        continue
-            except Exception:
-                pkey = None
-                for key_class in (paramiko.RSAKey, paramiko.Ed25519Key, paramiko.ECDSAKey):
-                    try:
-                        pkey = key_class.from_private_key_file(key_file)
-                        break
-                    except Exception:
-                        continue
+            pkey = _load_pkey(key_file)
             if pkey is None:
                 log_err(f"Could not load key: {key_file} - unsupported format or bad passphrase")
                 sys.exit(1)
-            client.connect(hostname=target, port=port, username=username, pkey=pkey,
-                           timeout=15, allow_agent=False, look_for_keys=False)
+            client.connect(hostname=target, port=port, username=username, pkey=pkey, **kw)
         else:
-            client.connect(hostname=target, port=port, username=username, password=password,
-                           timeout=15, allow_agent=False, look_for_keys=False)
+            client.connect(hostname=target, port=port, username=username, password=password, **kw)
+
+        client._bloodpengu_jclient = jclient
         return client
+
     except paramiko.AuthenticationException:
         log_err(f"Authentication failed - {username}@{target}:{port}")
         sys.exit(1)
@@ -925,17 +1295,20 @@ def connect_ssh(target, port, username, password, key_file):
 
 def parse_args():
     parser = argparse.ArgumentParser(add_help=False)
-    parser.add_argument("target",     nargs="?",  default=None)
-    parser.add_argument("-u",         dest="username", default=None)
-    parser.add_argument("-p",         dest="password", default=None)
-    parser.add_argument("-k",         dest="key_file", default=None)
-    parser.add_argument("-d",         dest="domain",   default=None)
-    parser.add_argument("--port",     dest="port",     type=int, default=22)
-    parser.add_argument("-M",         dest="module",   default=None)
-    parser.add_argument("-o",         dest="output",   default="pypengu-output.json")
-    parser.add_argument("-v",         dest="verbose",  action="store_true", default=False)
-    parser.add_argument("--no-color", dest="no_color", action="store_true", default=False)
-    parser.add_argument("-h","--help",dest="help",     action="store_true", default=False)
+    parser.add_argument("target",        nargs="?",  default=None)
+    parser.add_argument("-u",            dest="username",     default=None)
+    parser.add_argument("-p",            dest="password",     default=None)
+    parser.add_argument("-k",            dest="key_file",     default=None)
+    parser.add_argument("-d",            dest="domain",       default=None)
+    parser.add_argument("--port",        dest="port",         type=int, default=22)
+    parser.add_argument("-M",            dest="module",       default=None)
+    parser.add_argument("-o",            dest="output",       default="pypengu-output.json")
+    parser.add_argument("-v",            dest="verbose",      action="store_true", default=False)
+    parser.add_argument("--no-color",    dest="no_color",     action="store_true", default=False)
+    parser.add_argument("--old-ssh",     dest="old_ssh",      action="store_true", default=False)
+    parser.add_argument("--jumphost",    dest="jumphost",     default=None)
+    parser.add_argument("--jumphost-key",dest="jumphost_key", default=None)
+    parser.add_argument("-h","--help",   dest="help",         action="store_true", default=False)
     return parser.parse_args()
 
 
@@ -975,13 +1348,22 @@ def main():
     log_info(f"Auth    : {c(WHITE, auth_label)}")
     if args.domain:
         log_info(f"Domain  : {c(WHITE, args.domain)}")
+    if args.jumphost:
+        log_info(f"Jump    : {c(WHITE, args.jumphost)}")
+    if args.old_ssh:
+        log_info(f"SSH     : {c(BORANGE, 'legacy mode (--old-ssh)')}")
     log_info(f"Mode    : {c(BORANGE, args.module) if args.module else c(WHITE, 'full collection')}")
     log_info(f"Output  : {c(WHITE, args.output)}")
     print()
 
     log_info(f"Connecting to {args.target}:{args.port}...")
     t0     = time.time()
-    client = connect_ssh(args.target, args.port, args.username, args.password, args.key_file)
+    client = connect_ssh(
+        args.target, args.port, args.username, args.password, args.key_file,
+        old_ssh=args.old_ssh,
+        jumphost=args.jumphost,
+        jumphost_key=args.jumphost_key,
+    )
     log_ok(f"Connected in {time.time()-t0:.2f}s  -  {args.username}@{args.target}:{args.port}")
 
     uname = client.exec_command("uname -a 2>/dev/null")[1].read().decode("utf-8", errors="replace").strip()
@@ -998,6 +1380,9 @@ def main():
         collector.run_all()
 
     client.close()
+    jclient = getattr(client, "_bloodpengu_jclient", None)
+    if jclient:
+        jclient.close()
 
     elapsed  = time.time() - t_start
     output   = collector.build_output()

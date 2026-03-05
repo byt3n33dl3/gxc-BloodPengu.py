@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/byt3n33dl3/gxc-BloodPengu.py/releases">1.5.2</a> •
+  <a href="https://github.com/byt3n33dl3/gxc-BloodPengu.py/releases">1.5.3</a> •
   <a href="#">SuSHi Rav3n</a>
 </p>
 
@@ -16,7 +16,7 @@
 ![Python 3 compatible](https://img.shields.io/badge/python-3.X-blue.svg)
 ![License: MIT](https://img.shields.io/badge/license-Apache_License_2.0-blue)
 
-Data ingestor in Python for `BloodPengu` APM F.K.A <ins>Attack Path Manager!!</ins>
+Data ingestor in Python for `BloodPengu` APM F.K.A _Attack Path Manager!!_
 
 Enumerate via SSH logon authentication and runs the full BloodPengu enumeration pipeline. All output lands on the attacker machine as JSON file (`-o` out.put), ready to import directly into BloodPengu.
 
@@ -31,7 +31,7 @@ What it collects over SSH (for BloodPengu):
 - services
 - cron
 - kernel
-- `containers:` Docker socket, in-container detection, AWS/GCP/K8s creds
+- `containers:` Docker socket, in-container detection, `AWS/GCP/K8s` creds
 - network interfaces
 - env
 
