@@ -21,7 +21,7 @@ except ImportError:
     print("\033[1;31m[!]\033[0m paramiko not installed!! Run: pip3 install paramiko")
     sys.exit(1)
 
-BP_VERSION    = "1.5.3"
+BP_VERSION    = "1.5.5"
 SUITE_VERSION = "2.0.3"
 
 RESET   = "\033[0m"
@@ -42,6 +42,7 @@ BUILTIN_MODULES = {
     "avrisk":    "Anti-Virus Discovery!!",
     "brace":     "Container and Cloud Assessor",
     "kernel":    "Kernel and LPE CVE's checklists!!",
+    "mi6":       "Stealth collection mode - log suppression and process masking",
 }
 
 
@@ -82,7 +83,7 @@ def banner():
     print(c(BORANGE, "  \\_, /_/|_|\\__/   /____/_/\\___/\\___/\\_,_/_/   \\__/_//_/\\_, /\\_,_(_) .__/\\_, / "))
     print(c(BORANGE, " /___/                                                 /___/      /_/   /___/  "))
     print()
-    print(c(BRED,    "                           v1.5.3 [SuSHi Rav3n]                          "))
+    print(c(BRED,    "                           v1.5.5 [SuSHi Rav3n]                          "))
     print()
     print(f"  {c(BORANGE, 'gxc-BloodPengu.py')} {c(DGREY, f'v{BP_VERSION}')} {c(DGREY, '|')} {c(BORANGE, 'by <@byt3n33dl3>')}")
     print(f"  {c(DGREY, 'Data collector in Python for BloodPengu APM')}")
@@ -159,6 +160,7 @@ def print_help():
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -M avrisk')}")
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -M brace')}")
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -M kernel')}")
+    print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -p kr@ken -M mi6')}")
     print(f"    {c(WHITE, 'bloodpengu-python <target> -u kraken -k id_rsa -o ./results/kraken.json')}")
     print()
     print(f"  {c(DGREY, '-' * 70)}")
@@ -1039,26 +1041,25 @@ class SSHCollector:
             log_err("Module brace not found in modules/")
 
     def collect_kernel_module(self):
-        log_info("Running kernel CVE checklist...")
+        log_info("Running kernel and LPE full checklist...")
         cu_id   = f"user:{self._current_user}"
         uname_r = self.run("uname -r").strip()
         if not uname_r:
             uname_r = self._kernel or "unknown"
         self._kernel = uname_r
         kernel_base  = ".".join(uname_r.split(".")[:3])
+        finding_count = 0
 
         matched = []
         for k_ver, cve_list in KERNEL_CVES.items():
             if kernel_base.startswith(k_ver):
                 matched.extend(cve_list)
-
         seen    = set()
         deduped = []
         for entry in matched:
             if entry[0] not in seen:
                 seen.add(entry[0])
                 deduped.append(entry)
-
         for cve, risk, desc, ref in deduped:
             tier = "CRITICAL" if risk == "critical" else "HIGH"
             self._add_finding(tier, "kernel",
@@ -1066,39 +1067,301 @@ class SSHCollector:
             self._add_edge(cu_id, "KernelExploit", "user:root", risk=risk,
                            properties={"cve": cve, "description": desc,
                                        "kernel_version": uname_r, "reference": ref})
+            finding_count += 1
 
-        sudo_ver = self.run("sudo --version 2>/dev/null | head -1").strip()
-        if sudo_ver:
+        sudo_raw = self.run("sudo --version 2>/dev/null | head -1").strip()
+        if sudo_raw:
+            sudo_ver_str = sudo_raw.replace("Sudo version", "").strip()
             self._add_finding("POTENTIAL", "kernel",
-                f"Sudo version: {sudo_ver}  |  verify against CVE-2021-3156 / CVE-2019-14287", sudo_ver)
-
-        polkit_ver = self.run("pkexec --version 2>/dev/null").strip()
-        if polkit_ver:
-            self._add_finding("POTENTIAL", "kernel",
-                f"Polkit version: {polkit_ver}  |  verify against CVE-2021-4034", polkit_ver)
-
-        glibc_ver = self.run("ldd --version 2>/dev/null | head -1").strip()
-        if glibc_ver:
-            self._add_finding("POTENTIAL", "kernel",
-                f"glibc: {glibc_ver}  |  verify against CVE-2015-7547 / CVE-2023-4911 Looney Tunables", glibc_ver)
-
-        looney = self.run("ldd --version 2>/dev/null | head -1 | grep -oE '[0-9]+\\.[0-9]+'").strip()
-        if looney:
+                f"Sudo version: {sudo_ver_str}", sudo_raw)
+            finding_count += 1
             try:
-                major, minor = looney.split(".")
-                if int(major) == 2 and int(minor) <= 37:
+                parts = sudo_ver_str.split(".")
+                major = int(parts[0]) if parts else 0
+                minor = int(parts[1]) if len(parts) > 1 else 0
+                patch_raw = parts[2] if len(parts) > 2 else "0"
+                patch_str = "".join(c for c in patch_raw if c.isdigit())
+                patch = int(patch_str) if patch_str else 0
+                if (major, minor) < (1, 9) or ((major, minor) == (1, 9) and patch < 5):
                     self._add_finding("CRITICAL", "kernel",
-                        f"glibc {looney} vulnerable to CVE-2023-4911 Looney Tunables - SUID LPE via GLIBC_TUNABLES",
-                        "https://nvd.nist.gov/vuln/detail/CVE-2023-4911")
+                        f"CVE-2021-3156  |  Sudo {sudo_ver_str} heap-based buffer overflow - Baron Samedit LPE",
+                        "https://nvd.nist.gov/vuln/detail/CVE-2021-3156")
                     self._add_edge(cu_id, "KernelExploit", "user:root", risk="critical",
-                                   properties={"cve": "CVE-2023-4911",
-                                               "description": "Looney Tunables glibc GLIBC_TUNABLES buffer overflow",
+                                   properties={"cve": "CVE-2021-3156",
+                                               "description": "Sudo Baron Samedit heap overflow LPE",
                                                "kernel_version": uname_r,
-                                               "reference": "https://nvd.nist.gov/vuln/detail/CVE-2023-4911"})
+                                               "reference": "https://nvd.nist.gov/vuln/detail/CVE-2021-3156"})
+                    finding_count += 1
+                if (major, minor) == (1, 8) and patch == 28:
+                    self._add_finding("HIGH", "kernel",
+                        f"CVE-2019-14287  |  Sudo {sudo_ver_str} user ID -1 bypass via 'sudo -u#-1'",
+                        "https://nvd.nist.gov/vuln/detail/CVE-2019-14287")
+                    finding_count += 1
+                if (major < 1) or (major == 1 and minor < 9) or \
+                   (major == 1 and minor == 9 and patch < 17):
+                    self._add_finding("CRITICAL", "kernel",
+                        f"CVE-2025-32463  |  Sudo {sudo_ver_str} --chroot flag LPE - CVSS 9.3 - affects sudo < 1.9.17p1",
+                        "https://nvd.nist.gov/vuln/detail/CVE-2025-32463")
+                    self._add_edge(cu_id, "KernelExploit", "user:root", risk="critical",
+                                   properties={"cve": "CVE-2025-32463",
+                                               "description": "Sudo --chroot LPE via arbitrary root filesystem pivot",
+                                               "kernel_version": uname_r,
+                                               "reference": "https://nvd.nist.gov/vuln/detail/CVE-2025-32463"})
+                    finding_count += 1
+                if (major == 1 and minor >= 8 and patch >= 8) and \
+                   not (major == 1 and minor == 9 and patch >= 17):
+                    self._add_finding("HIGH", "kernel",
+                        f"CVE-2025-32462  |  Sudo {sudo_ver_str} policy-check bypass via --chroot - affects 1.8.8 to 1.9.17",
+                        "https://nvd.nist.gov/vuln/detail/CVE-2025-32462")
+                    finding_count += 1
             except Exception:
                 pass
 
-        log_ok(f"Kernel: {uname_r}  |  CVE matches: {len(deduped)}")
+        polkit_raw = self.run("pkexec --version 2>/dev/null").strip()
+        if polkit_raw:
+            self._add_finding("POTENTIAL", "kernel",
+                f"Polkit version: {polkit_raw}", polkit_raw)
+            finding_count += 1
+            try:
+                pv = polkit_raw.split()[-1]
+                pmaj, pmin, ppatch = (int(x) for x in (pv.split(".")[:3] + ["0","0","0"])[:3])
+                if (pmaj, pmin, ppatch) < (0, 120, 0):
+                    self._add_finding("CRITICAL", "kernel",
+                        f"CVE-2021-4034  |  pkexec {pv} privilege escalation via argv memory corruption - PwnKit",
+                        "https://nvd.nist.gov/vuln/detail/CVE-2021-4034")
+                    self._add_edge(cu_id, "KernelExploit", "user:root", risk="critical",
+                                   properties={"cve": "CVE-2021-4034",
+                                               "description": "PwnKit pkexec argv memory corruption LPE",
+                                               "kernel_version": uname_r,
+                                               "reference": "https://nvd.nist.gov/vuln/detail/CVE-2021-4034"})
+                    finding_count += 1
+            except Exception:
+                pass
+
+        glibc_raw = self.run("ldd --version 2>/dev/null | head -1").strip()
+        if glibc_raw:
+            self._add_finding("POTENTIAL", "kernel",
+                f"glibc: {glibc_raw}", glibc_raw)
+            finding_count += 1
+        looney = self.run("ldd --version 2>/dev/null | head -1 | grep -oE '[0-9]+\\.[0-9]+'").strip()
+        if looney:
+            try:
+                gmaj, gmin = (int(x) for x in looney.split(".")[:2])
+                if gmaj == 2 and gmin <= 37:
+                    self._add_finding("CRITICAL", "kernel",
+                        f"CVE-2023-4911  |  glibc {looney} Looney Tunables - SUID LPE via GLIBC_TUNABLES buffer overflow",
+                        "https://nvd.nist.gov/vuln/detail/CVE-2023-4911")
+                    self._add_edge(cu_id, "KernelExploit", "user:root", risk="critical",
+                                   properties={"cve": "CVE-2023-4911",
+                                               "description": "Looney Tunables GLIBC_TUNABLES buffer overflow",
+                                               "kernel_version": uname_r,
+                                               "reference": "https://nvd.nist.gov/vuln/detail/CVE-2023-4911"})
+                    finding_count += 1
+                if gmaj == 2 and gmin <= 17:
+                    self._add_finding("HIGH", "kernel",
+                        f"CVE-2015-7547  |  glibc {looney} getaddrinfo stack buffer overflow - remote/local LPE",
+                        "https://nvd.nist.gov/vuln/detail/CVE-2015-7547")
+                    finding_count += 1
+            except Exception:
+                pass
+
+        caps_raw = self.run(
+            "getcap -r / 2>/dev/null | grep -v '^$' | head -30"
+        ).strip()
+        if caps_raw:
+            DANGEROUS_CAPS = {
+                "cap_setuid":   ("CRITICAL", "cap_setuid capability - direct UID 0 escalation path"),
+                "cap_setgid":   ("HIGH",     "cap_setgid capability - arbitrary group escalation"),
+                "cap_dac_override": ("HIGH", "cap_dac_override - bypass filesystem permission checks"),
+                "cap_dac_read_search": ("HIGH", "cap_dac_read_search - read any file regardless of permissions"),
+                "cap_sys_admin":("CRITICAL", "cap_sys_admin - broad kernel admin capability, multiple LPE paths"),
+                "cap_sys_ptrace":("CRITICAL","cap_sys_ptrace - ptrace any process, credential extraction possible"),
+                "cap_net_raw":  ("HIGH",     "cap_net_raw - raw socket access, MITM and sniffing"),
+                "cap_chown":    ("HIGH",     "cap_chown - change ownership of any file including /etc/shadow"),
+                "cap_fowner":   ("HIGH",     "cap_fowner - bypass permission checks on owned files"),
+                "cap_sys_module":("CRITICAL","cap_sys_module - load arbitrary kernel modules, direct ring0 access"),
+                "cap_sys_rawio":("CRITICAL", "cap_sys_rawio - raw I/O to physical devices, memory overwrite"),
+                "cap_sys_chroot":("HIGH",    "cap_sys_chroot - chroot into arbitrary directory"),
+                "cap_kill":     ("POTENTIAL","cap_kill - send signals to processes owned by other users"),
+                "cap_audit_write":("POTENTIAL","cap_audit_write - write to kernel audit log"),
+                "cap_net_admin":("HIGH",     "cap_net_admin - configure network interfaces, potential pivot"),
+            }
+            for line in caps_raw.splitlines():
+                line_low = line.lower()
+                for cap_name, (tier, cap_desc) in DANGEROUS_CAPS.items():
+                    if cap_name in line_low:
+                        self._add_finding(tier, "kernel",
+                            f"Dangerous capability on binary: {line.strip()}  |  {cap_desc}", line)
+                        if cap_name in ("cap_setuid", "cap_sys_admin", "cap_sys_ptrace",
+                                        "cap_sys_module", "cap_sys_rawio"):
+                            self._add_edge(cu_id, "KernelExploit", "user:root", risk="critical",
+                                           properties={"description": cap_desc,
+                                                       "kernel_version": uname_r,
+                                                       "entry": line.strip()})
+                        finding_count += 1
+                        break
+
+        path_dirs = self.run("echo $PATH").strip().split(":")
+        for d in path_dirs:
+            d = d.strip()
+            if not d or d in ("/usr/bin", "/bin", "/usr/sbin", "/sbin"):
+                continue
+            if self.writable(d):
+                self._add_finding("CRITICAL", "kernel",
+                    f"Writable directory in PATH: {d}  |  binary hijack for any root-invoked command",
+                    d)
+                self._add_edge(cu_id, "KernelExploit", "user:root", risk="critical",
+                               properties={"description": "Writable PATH directory - command hijack",
+                                           "kernel_version": uname_r,
+                                           "entry": d})
+                finding_count += 1
+
+        ld_preload = self.run("echo $LD_PRELOAD").strip()
+        ld_library = self.run("echo $LD_LIBRARY_PATH").strip()
+        if ld_preload and ld_preload not in ("", "/dev/null"):
+            self._add_finding("CRITICAL", "kernel",
+                f"LD_PRELOAD set: {ld_preload}  |  shared object injection active", ld_preload)
+            finding_count += 1
+        if ld_library and ld_library not in ("",):
+            self._add_finding("HIGH", "kernel",
+                f"LD_LIBRARY_PATH set: {ld_library}  |  library resolution hijack possible", ld_library)
+            finding_count += 1
+        lib_confd = self.run_lines("cat /etc/ld.so.conf.d/*.conf 2>/dev/null | grep -v '^#'")
+        for lib_dir in lib_confd:
+            lib_dir = lib_dir.strip()
+            if lib_dir and self.writable(lib_dir):
+                self._add_finding("CRITICAL", "kernel",
+                    f"Writable ld.so.conf.d library directory: {lib_dir}  |  shared library hijack",
+                    lib_dir)
+                finding_count += 1
+
+        nfs_exports = self.run("cat /etc/exports 2>/dev/null").strip()
+        if nfs_exports:
+            for line in nfs_exports.splitlines():
+                if "no_root_squash" in line.lower():
+                    self._add_finding("CRITICAL", "kernel",
+                        f"NFS export with no_root_squash: {line.strip()}  |  mount as remote root for direct LPE",
+                        line)
+                    self._add_edge(cu_id, "KernelExploit", "user:root", risk="critical",
+                                   properties={"description": "NFS no_root_squash allows remote root mount",
+                                               "kernel_version": uname_r,
+                                               "entry": line.strip()})
+                    finding_count += 1
+                if "no_all_squash" in line.lower():
+                    self._add_finding("HIGH", "kernel",
+                        f"NFS export with no_all_squash: {line.strip()}", line)
+                    finding_count += 1
+
+        loaded_mods = self.run("lsmod 2>/dev/null | tail -n +2 | awk '{print $1}'").strip()
+        RISKY_MODS = {
+            "vboxsf":    ("POTENTIAL", "VirtualBox shared folder module loaded - guest additions present"),
+            "vmhgfs":    ("POTENTIAL", "VMware HGFS module loaded - shared folder attack surface"),
+            "nf_tables": ("POTENTIAL", "nf_tables loaded - verify against nftables CVE family"),
+            "ip_tables": ("POTENTIAL", "ip_tables loaded"),
+            "xt_owner":  ("POTENTIAL", "xt_owner netfilter module loaded"),
+            "overlayfs": ("POTENTIAL", "overlayfs loaded - verify against overlayfs CVE family"),
+            "bpf":       ("POTENTIAL", "BPF module loaded - verify against eBPF LPE family"),
+        }
+        if loaded_mods:
+            for mod_line in loaded_mods.splitlines():
+                mod_name = mod_line.strip().lower()
+                if mod_name in RISKY_MODS:
+                    tier, mod_desc = RISKY_MODS[mod_name]
+                    self._add_finding(tier, "kernel",
+                        f"Kernel module {mod_name}: {mod_desc}", mod_name)
+                    finding_count += 1
+
+        dmesg_out = self.run("dmesg 2>/dev/null | tail -20 | grep -iE '(selinux|apparmor|seccomp)' | head -5").strip()
+        selinux   = self.run("getenforce 2>/dev/null || sestatus 2>/dev/null | head -1").strip()
+        apparmor  = self.run("aa-status 2>/dev/null | head -3 || apparmor_status 2>/dev/null | head -3").strip()
+        seccomp   = self.run("grep Seccomp /proc/self/status 2>/dev/null").strip()
+        if selinux and "enforcing" in selinux.lower():
+            self._add_finding("POTENTIAL", "kernel",
+                f"SELinux enforcing: {selinux}  |  check for policy bypasses or permissive domains", selinux)
+        elif selinux and "permissive" in selinux.lower():
+            self._add_finding("HIGH", "kernel",
+                f"SELinux permissive mode: {selinux}  |  MAC not blocking - LPE unrestricted", selinux)
+            finding_count += 1
+        if apparmor and "enforce" not in apparmor.lower():
+            self._add_finding("POTENTIAL", "kernel",
+                f"AppArmor status: {apparmor[:100]}", apparmor[:100])
+        if seccomp:
+            seccomp_val = seccomp.split(":")[-1].strip()
+            if seccomp_val == "0":
+                self._add_finding("HIGH", "kernel",
+                    "Seccomp disabled for this process (Seccomp: 0)  |  all syscalls available", seccomp)
+                finding_count += 1
+
+        pam_raw = self.run(
+            "find /lib/security /lib/x86_64-linux-gnu/security /usr/lib/security"
+            " /usr/lib/x86_64-linux-gnu/security -name '*.so' 2>/dev/null | head -5"
+        ).strip()
+        if pam_raw:
+            self._add_finding("POTENTIAL", "kernel",
+                f"PAM modules present: {pam_raw.splitlines()[0]}  |  check CVE-2025-6018/CVE-2025-6019 on openSUSE/SUSE",
+                pam_raw[:200])
+
+        vsock_check = self.run("lsmod 2>/dev/null | grep -i vsock").strip()
+        if vsock_check:
+            self._add_finding("HIGH", "kernel",
+                f"CVE-2025-21756  |  vsock module loaded: {vsock_check}  |  Attack of the Vsock - VM escape to host root on kernels 6.8/6.11/6.12",
+                "https://nvd.nist.gov/vuln/detail/CVE-2025-21756")
+            finding_count += 1
+
+        timers = self.run(
+            "find /etc/systemd/system /lib/systemd/system /usr/lib/systemd/system"
+            " -name '*.timer' 2>/dev/null | head -10"
+        )
+        if timers:
+            for tpath in timers.splitlines():
+                tpath = tpath.strip()
+                if tpath and self.writable(tpath):
+                    self._add_finding("CRITICAL", "kernel",
+                        f"Writable systemd timer: {tpath}  |  schedule arbitrary execution as root", tpath)
+                    self._add_edge(cu_id, "KernelExploit", "user:root", risk="critical",
+                                   properties={"description": "Writable systemd timer for root code execution",
+                                               "kernel_version": uname_r,
+                                               "entry": tpath})
+                    finding_count += 1
+
+        dbus_conf = self.run(
+            "find /etc/dbus-1 /usr/share/dbus-1 -name '*.conf' 2>/dev/null | head -5"
+        ).strip()
+        if dbus_conf:
+            for dpath in dbus_conf.splitlines():
+                dpath = dpath.strip()
+                if dpath and self.writable(dpath):
+                    self._add_finding("HIGH", "kernel",
+                        f"Writable D-Bus policy file: {dpath}  |  privilege escalation via D-Bus service impersonation",
+                        dpath)
+                    finding_count += 1
+
+        interp_suids = self.run(
+            "find / \\( -perm -4000 \\) -type f 2>/dev/null"
+            " | xargs -I{} basename {} 2>/dev/null"
+            " | grep -E '^(python|python3|perl|ruby|lua|php|node|tclsh|wish)' | head -10"
+        ).strip()
+        if interp_suids:
+            for interp in interp_suids.splitlines():
+                self._add_finding("CRITICAL", "kernel",
+                    f"Interpreter with SUID bit: {interp.strip()}  |  trivial shell spawn to root", interp)
+                finding_count += 1
+
+        core_pattern = self.run("cat /proc/sys/kernel/core_pattern 2>/dev/null").strip()
+        if core_pattern and core_pattern.startswith("|"):
+            self._add_finding("HIGH", "kernel",
+                f"core_pattern pipes to handler: {core_pattern}  |  crash a SUID binary to invoke handler as root",
+                core_pattern)
+            finding_count += 1
+
+        log_ok(f"Kernel: {uname_r}  |  CVE matches: {len(deduped)}  |  Total LPE findings: {finding_count}")
+
+    def collect_mi6(self):
+        mod = load_module("mi6")
+        if mod:
+            mod.run(self)
+        else:
+            log_err("Module mi6 not found in modules/")
 
     def run_all(self):
         self.collect_users()
@@ -1125,6 +1388,9 @@ class SSHCollector:
         self.collect_groups()
         if module == "kernel":
             self.collect_kernel_module()
+            return
+        if module == "mi6":
+            self.collect_mi6()
             return
         mod = load_module(module)
         if not mod:

@@ -1,7 +1,7 @@
 ## Modules
 
 <p align="center">
-  <a href="https://github.com/byt3n33dl3/gxc-BloodPengu.py/releases">1.5.3</a> •
+  <a href="https://github.com/byt3n33dl3/gxc-BloodPengu.py/releases">1.5.5</a> •
   <a href="#">SuSHi Rav3n</a>
 </p>
 
@@ -10,6 +10,7 @@ This if for all Modules (-M) options, helping `Adversaries` to have custom Pytho
 - SACSPengu: `-M sacspengu`
 - AV Discovery: `-M avrisk`
 - BRACE: `-M brace`
+- Stealth Mode: `-M mi6`
 - Kernel and LPE CVE's suggestion: `-M kernel`
 
 And more to custom!!
