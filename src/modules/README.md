@@ -1,7 +1,7 @@
 ## Modules
 
 <p align="center">
-  <a href="https://github.com/byt3n33dl3/gxc-BloodPengu.py/releases">1.5.5</a> •
+  <a href="https://github.com/byt3n33dl3/gxc-BloodPengu.py/releases">1.5.8</a> •
   <a href="#">SuSHi Rav3n</a>
 </p>
 
@@ -12,6 +12,8 @@ This if for all Modules (-M) options, helping `Adversaries` to have custom Pytho
 - BRACE: `-M brace`
 - Stealth Mode: `-M mi6`
 - Kernel and LPE CVE's suggestion: `-M kernel`
+
+After version `1.5.8` BloodPengu.py now can run multiple modules at the same time, with usage of coma `,` as example: -M kernel,mi6
 
 And more to custom!!
 

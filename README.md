@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/byt3n33dl3/gxc-BloodPengu.py/releases">1.5.5</a> •
+  <a href="https://github.com/byt3n33dl3/gxc-BloodPengu.py/releases">1.5.8</a> •
   <a href="#">SuSHi Rav3n</a>
 </p>
 

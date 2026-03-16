@@ -21,7 +21,7 @@ except ImportError:
     print("\033[1;31m[!]\033[0m paramiko not installed!! Run: pip3 install paramiko")
     sys.exit(1)
 
-BP_VERSION    = "1.5.5"
+BP_VERSION    = "1.5.8"
 SUITE_VERSION = "2.0.3"
 
 RESET   = "\033[0m"
@@ -83,7 +83,7 @@ def banner():
     print(c(BORANGE, "  \\_, /_/|_|\\__/   /____/_/\\___/\\___/\\_,_/_/   \\__/_//_/\\_, /\\_,_(_) .__/\\_, / "))
     print(c(BORANGE, " /___/                                                 /___/      /_/   /___/  "))
     print()
-    print(c(BRED,    "                           v1.5.5 [SuSHi Rav3n]                          "))
+    print(c(BRED,    "                           v1.5.8 [SuSHi Rav3n]                          "))
     print()
     print(f"  {c(BORANGE, 'gxc-BloodPengu.py')} {c(DGREY, f'v{BP_VERSION}')} {c(DGREY, '|')} {c(BORANGE, 'by <@byt3n33dl3>')}")
     print(f"  {c(DGREY, 'Data collector in Python for BloodPengu APM')}")
@@ -1379,24 +1379,25 @@ class SSHCollector:
         self.collect_brace()
         self.collect_kernel_module()
 
-    def run_module(self, module):
+    def run_module(self, modules):
         available = get_available_modules()
-        if module not in available:
-            log_err(f"Unknown module: {module}  |  Available: {', '.join(available.keys())}")
-            sys.exit(1)
+        for module in modules:
+            if module not in available:
+                log_err(f"Unknown module: {module}  |  Available: {', '.join(available.keys())}")
+                sys.exit(1)
         self.collect_users()
         self.collect_groups()
-        if module == "kernel":
-            self.collect_kernel_module()
-            return
-        if module == "mi6":
-            self.collect_mi6()
-            return
-        mod = load_module(module)
-        if not mod:
-            log_err(f"Could not load module file: modules/{module}.py")
-            sys.exit(1)
-        mod.run(self)
+        for module in modules:
+            if module == "kernel":
+                self.collect_kernel_module()
+            elif module == "mi6":
+                self.collect_mi6()
+            else:
+                mod = load_module(module)
+                if not mod:
+                    log_err(f"Could not load module file: modules/{module}.py")
+                    sys.exit(1)
+                mod.run(self)
 
 
 LEGACY_ALGORITHMS = {
@@ -1600,10 +1601,15 @@ def main():
         sys.exit(1)
 
     available = get_available_modules()
-    if args.module and args.module not in available:
-        banner()
-        log_err(f"Unknown module: {args.module}  |  Available: {', '.join(available.keys())}")
-        sys.exit(1)
+    if args.module:
+        modules = [m.strip() for m in args.module.split(",") if m.strip()]
+        bad = [m for m in modules if m not in available]
+        if bad:
+            banner()
+            log_err(f"Unknown module(s): {', '.join(bad)}  |  Available: {', '.join(available.keys())}")
+            sys.exit(1)
+    else:
+        modules = []
 
     banner()
     divider()
@@ -1618,7 +1624,8 @@ def main():
         log_info(f"Jump    : {c(WHITE, args.jumphost)}")
     if args.old_ssh:
         log_info(f"SSH     : {c(BORANGE, 'legacy mode (--old-ssh)')}")
-    log_info(f"Mode    : {c(BORANGE, args.module) if args.module else c(WHITE, 'full collection')}")
+    mode_label = c(BORANGE, ", ".join(modules)) if modules else c(WHITE, "full collection")
+    log_info(f"Mode    : {mode_label}")
     log_info(f"Output  : {c(WHITE, args.output)}")
     print()
 
@@ -1640,8 +1647,8 @@ def main():
     collector = SSHCollector(client, args.target, args.domain, args.verbose)
     t_start   = time.time()
 
-    if args.module:
-        collector.run_module(args.module)
+    if modules:
+        collector.run_module(modules)
     else:
         collector.run_all()
 
